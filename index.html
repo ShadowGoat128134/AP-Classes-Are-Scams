@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>AP Snake</title>
+	<style>
+		* { padding: 0; margin: 0; }
+		canvas { background: #eee; display: block; margin: 0 auto; }
+	</style>
+</head>
+<body>
+
+<canvas id="Snakeplane" width="960" height="640"></canvas>
+
+<script>
+var snekboard = document.getElementById("Snakeplane");
+var x = canvas.width/2;
+var y = canvas.height/2;
+var sX = 5;
+var sY = 0;
+var length = 5;
+var score = 0;
+
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("mousemove", mouseMoveHandler, false);
+
+function reset(){
+  x = canvas.width/2;
+  y = canvas.height/2;
+  score = 0;
+}
+function drawSnakeHead(){
+  ctx.beginPath();
+  ctx.rect(x, y, 5, 5);
+  ctx.fillStyle = "#7CFC00";
+  ctx.fill;
+  ctx.closePath;
+}
+function wallCheck(){
+  if((x == canvas.width) || (x == 0) || (y == canvas.height) || (y == 0){
+    alert("You lose. Your score was " + score + ".");
+    loss();
+}
+
+</script>
