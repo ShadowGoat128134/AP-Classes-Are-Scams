@@ -17,14 +17,15 @@ var canvas = document.getElementById("Snakeplane");
 var ctx = canvas.getContext("2d");
 var x = canvas.width/2;
 var y = canvas.height/2;
-var sX = 5;
-var sY = 0;
+var sX = 0;
+var sY = 3;
 var sLength = 5;
 var score = 0;
 var rightPress = false;
 var leftPress = false;
 var upPress = false;
 var downPress = false;
+var size = 10;
 	
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -59,7 +60,7 @@ function keyUpHandler(e) {
 }
 function drawSnakeHead(){
   ctx.beginPath();
-  ctx.rect(x, y, 5, 5);
+  ctx.rect(x, y, size, size);
   ctx.fillStyle = "#7CFC00";
   ctx.fill();
   ctx.closePath();
@@ -68,20 +69,20 @@ function draw(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawSnakeHead();
   if(rightPress){
-    x = 5;
-    y = 0;
+    sX = 3;
+    sY = 0;
   }
   else if(leftPress) {
-    x = -5;
-    y = 0;
+    sX = -3;
+    sY = 0;
   }
   else if(upPress) {
-    x = 5;
-    y = 0;
+    xY = 3;
+    sY = 0;
   }
   else if(downPress) {
-    x = -5;
-    y = 0;
+    sX = -3;
+    sy = 0;
   }
   if((x == canvas.width) || (x == 0) || (y == canvas.height) || (y == 0)){
     alert("You lose. Your score was " + score + ".");
