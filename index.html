@@ -80,9 +80,20 @@ function draw(){
     x = -5;
     y = 0;
   }
+  else if(upPress) {
+    x = 5;
+    y = 0;
+  }
+  else if(downPress) {
+    x = -5;
+    y = 0;
+  }
   if((x == canvas.width) || (x == 0) || (y == canvas.height) || (y == 0){
     alert("You lose. Your score was " + score + ".");
     loss();
+  }
+  x += sX;
+  y += sY;
 }
 
 </script>
