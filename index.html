@@ -18,7 +18,7 @@ var ctx = canvas.getContext("2d");
 var x = canvas.width/2;
 var y = canvas.height/2;
 var sX = 0;
-var sY = 3;
+var sY = speed;
 var sLength = 5;
 var score = 0;
 var rightPress = false;
@@ -26,6 +26,7 @@ var leftPress = false;
 var upPress = false;
 var downPress = false;
 var size = 10;
+var speed = 3;
 	
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -69,20 +70,20 @@ function draw(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawSnakeHead();
   if(rightPress){
-    sX = 3;
+    sX = speed;
     sY = 0;
   }
   else if(leftPress) {
-    sX = -3;
+    sX = -speed;
     sY = 0;
   }
   else if(upPress) {
-    xY = 3;
-    sY = 0;
+    sX = 0;
+    sY = speed;
   }
   else if(downPress) {
-    sX = -3;
-    sy = 0;
+    sX = 0;
+    sy = -speed;
   }
   if((x == canvas.width) || (x == 0) || (y == canvas.height) || (y == 0)){
     alert("You lose. Your score was " + score + ".");
