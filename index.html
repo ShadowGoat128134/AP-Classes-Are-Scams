@@ -56,11 +56,6 @@ function keyUpHandler(e) {
 	downPress = false;
     }
 }
-function reset(){
-  x = canvas.width/2;
-  y = canvas.height/2;
-  score = 0;
-}
 function drawSnakeHead(){
   ctx.beginPath();
   ctx.rect(x, y, 5, 5);
@@ -71,6 +66,29 @@ function drawSnakeHead(){
 function draw(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawSnakeHead();
+  if(rightPress){
+    x = 5;
+    y = 0;
+  }
+  else if(leftPress) {
+    x = -5;
+    y = 0;
+  }
+  else if(upPress) {
+    x = 5;
+    y = 0;
+  }
+  else if(downPress) {
+    x = -5;
+    y = 0;
+  }
+  if((x == canvas.width) || (x == 0) || (y == canvas.height) || (y == 0)){
+    alert("You lose. Your score was " + score + ".");
+    document.location.reload();
+  }
+  x += sX;
+  y += sY;
+  requestAnimationFrame(draw);
 }
 draw();
 </script>
