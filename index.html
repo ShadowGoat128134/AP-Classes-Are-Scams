@@ -71,7 +71,7 @@ function reset(){
   sX = 3;
   sY = 0;
 }
-function drawApple(){
+function drawIApple(){
   appleX = getRndInteger(0, canvas.width - 10);
   appleY = getRndInteger(0, canvas.height - 10);
   ctx.beginPath();
@@ -80,6 +80,15 @@ function drawApple(){
   ctx.fill();
   ctx.closePath();
   appleState = 1;
+}
+function drawCApple(){
+  while (appleState == 1){
+    ctx.beginPath();
+    ctx.rect(appleX, appleY, size, size);
+    ctx.fillStyle = "#FF0000";
+    ctx.fill();
+    ctx.closePath();
+  }
 }
 function drawSnakeHead(){
   ctx.beginPath();
@@ -108,7 +117,14 @@ function draw(){
     sY = 3;
   }
   if (appleState == 0){
-    drawApple();  
+    drawIApple();  
+  }
+  else if (appleState == 1){
+    drawCapple();  
+  }
+  else if ((x == appleX) && (y = appleY)){
+    score++;
+     applestate = 0;
   }
   if((x == canvas.width) || (x == 0) || (y == canvas.height) || (y == 0)){
     alert("You lose. Your score was " + score + ".");
