@@ -26,7 +26,7 @@ var leftPress = false;
 var upPress = false;
 var downPress = false;
 var size = 10;
-var appleState = 0;
+var appleState = false;
 var appleX = -10;
 var appleY = -10;
 	
@@ -79,10 +79,10 @@ function drawIApple(){
   ctx.fillStyle = "#FF0000";
   ctx.fill();
   ctx.closePath();
-  appleState = 1;
+  appleState = true;
 }
 function drawCApple(){
-  while (appleState == 1){
+  if(appleState = true){
     ctx.beginPath();
     ctx.rect(appleX, appleY, size, size);
     ctx.fillStyle = "#FF0000";
@@ -116,10 +116,10 @@ function draw(){
     sX = 0;
     sY = 3;
   }
-  if (appleState == 0){
+  if (appleState == false){
     drawIApple();  
   }
-  else if (appleState == 1){
+  else if (appleState == true){
     drawCapple();  
   }
   else if ((x == appleX) && (y = appleY)){
