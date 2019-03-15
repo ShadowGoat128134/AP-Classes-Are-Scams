@@ -116,16 +116,6 @@ function draw(){
     sX = 0;
     sY = 3;
   }
-  if (appleState == false){
-    drawIApple();  
-  }
-  else if (appleState == true){
-    drawCapple();  
-  }
-  else if ((x == appleX) && (y = appleY)){
-    score++;
-     applestate = 0;
-  }
   if((x == canvas.width) || (x == 0) || (y == canvas.height) || (y == 0)){
     alert("You lose. Your score was " + score + ".");
     reset();
