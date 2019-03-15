@@ -59,6 +59,13 @@ function keyUpHandler(e) {
 	downPress = false;
     }
 }
+function reset(){
+  score = 0;
+  x = canvas.width/2;
+  y = canvas.height/2;
+  sX = 5;
+  sX = 0;
+}
 function drawSnakeHead(){
   ctx.beginPath();
   ctx.rect(x, y, size, size);
@@ -87,7 +94,7 @@ function draw(){
   }
   if((x == canvas.width) || (x == 0) || (y == canvas.height) || (y == 0)){
     alert("You lose. Your score was " + score + ".");
-    document.location.reload();
+    reset();
   }
   x += sX;
   y += sY;
