@@ -27,6 +27,8 @@ var upPress = false;
 var downPress = false;
 var size = 10;
 var appleState = 0
+var appleX = -10;
+var appleY = -10;
 	
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -70,8 +72,10 @@ function reset(){
   sX = 0;
 }
 function drawApple(){
+  appleX = getRndInteger(0, canvas.width - 10);
+  appleY = getRndInteger(0, canvas.height - 10);
   ctx.beginPath();
-  ctx.rect(getRndInteger(0, canvas.width-10), getRndInteger(0, canvas.height - 10), size, size);
+  ctx.rect(appleX, appleY, size, size);
   ctx.fillStyle = "#839192";
   ctx.fill();
   ctx.closePath();
