@@ -26,6 +26,7 @@ var leftPress = false;
 var upPress = false;
 var downPress = false;
 var size = 10;
+var appleState = 0
 	
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -58,12 +59,23 @@ function keyUpHandler(e) {
 	downPress = false;
     }
 }
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
 function reset(){
   score = 0;
   x = canvas.width/2;
   y = canvas.height/2;
   sX = 5;
   sX = 0;
+}
+function drawApple(){
+  ctx.beginPath();
+  ctx.rect(getRndInteger(0, canvas.width-10), getRndInteger(0, canvas.height - 10), size, size);
+  ctx.fillStyle = "#839192";
+  ctx.fill();
+  ctx.closePath();
+  appleState = 1;
 }
 function drawSnakeHead(){
   ctx.beginPath();
@@ -90,6 +102,9 @@ function draw(){
   else if(downPress) {
     sX = 0;
     sY = 3;
+  }
+  if (appleState == 0){
+    drawApple();  
   }
   if((x == canvas.width) || (x == 0) || (y == canvas.height) || (y == 0)){
     alert("You lose. Your score was " + score + ".");
