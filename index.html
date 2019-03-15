@@ -72,23 +72,24 @@ function reset(){
   sY = 0;
 }
 function drawIApple(){
+ if(appleState == false){
   appleX = getRndInteger(0, canvas.width - 10);
   appleY = getRndInteger(0, canvas.height - 10);
   ctx.beginPath();
-  ctx.rect(appleX, appleY, size, size);
-  ctx.fillStyle = "#FF0000";
-  ctx.fill();
-  ctx.closePath();
+ ctx.fillStyle = 'red';
+ ctx.strokestyle = 'darkred';
+ ctx.fillRect(appleX, appleY, 10, 10);
+ ctx.strokeRect(appleX, appleY, 10, 10);
   appleState = true;
+ }
 }
 function drawCApple(){
-  if(appleState = true){
-    ctx.beginPath();
-    ctx.rect(appleX, appleY, size, size);
-    ctx.fillStyle = "#FF0000";
-    ctx.fill();
-    ctx.closePath();
-  }
+if (appleState == 1){
+ ctx.fillStyle = 'red';
+ ctx.strokestyle = 'darkred';
+ ctx.fillRect(appleX, appleY, 10, 10);
+ ctx.strokeRect(appleX, appleY, 10, 10);
+}
 }
 function drawSnakeHead(){
   ctx.beginPath();
@@ -120,6 +121,13 @@ function draw(){
     alert("You lose. Your score was " + score + ".");
     reset();
   }
+   drawIApple();
+   drawCApple();
+  if((x == appleX) && (y == appleY)){
+    score++
+    appleState = false;
+  }
+  else if
   x += sX;
   y += sY;
   requestAnimationFrame(draw);
