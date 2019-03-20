@@ -127,7 +127,9 @@ function draw(){
     score++
     appleState = false;
   }
-  else if
+  else{
+    appleState = true;  
+  }
   x += sX;
   y += sY;
   requestAnimationFrame(draw);
