@@ -118,7 +118,7 @@ function draw(){
     sX = 0;
     sY = 3;
   }
-  if(((x  == canvas.width) || (x + size == 0)) || ((y + size == canvas.height) || (y == 0))){
+  if((x  == canvas.width) || (x + size == 0) || (y + size == canvas.height) || (y == 0)){
     alert("You lose. Your score was " + score + ".");
     reset();
   }
