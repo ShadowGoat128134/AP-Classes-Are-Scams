@@ -70,8 +70,9 @@ function reset(){
   y = canvas.height/2;
   sX = 0;
   sY = 0;
+  appleState = false;
 }
-function drawIApple(){
+function drawIApple(){\
  if(appleState == false){
   appleX = getRndInteger(0, canvas.width - 10);
   appleY = getRndInteger(0, canvas.height - 10);
@@ -117,7 +118,7 @@ function draw(){
     sX = 0;
     sY = 3;
   }
-  if((x  == canvas.width) || (x == 0) || (y == canvas.height) || (y == 0)){
+  if((x  == canvas.width) || (x + size == 0) || (y + size == canvas.height) || (y == 0)){
     alert("You lose. Your score was " + score + ".");
     reset();
   }
