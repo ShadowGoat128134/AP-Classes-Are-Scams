@@ -11,7 +11,10 @@
 <body>
 
 <canvas id="Snakeplane" width="960" height="640"></canvas>
+<br>
 
+<p style="margin:50px"></p>
+<button type="button" onclick= "freeApple()">Click Me!</button>
 <script>
 var canvas = document.getElementById("Snakeplane");
 var ctx = canvas.getContext("2d");
@@ -122,26 +125,49 @@ function draw(){
     alert("You lose. Your score was " + score + ".");
     reset();
   }
-
    if(!(y < canvas.height) || !(y > 0)){
     alert("You lose. Your score was " + score + ".");
     reset();
   }
-
    drawIApple();
    drawCApple();
-  if((x == appleX) && (y == appleY)){
-    score++;
+  x += sX;
+  y += sY;
+  console.log(x);
+  console.log(y);
+  console.log(appleX);
+  console.log(appleY);
+
+
+var boxX= (x==appleX)||(x==appleX-1)||(x==appleX+1)||(x==appleX+2)||(x==appleX-2)||(x==appleX+3)||(x==appleX-3);
+var boxY= (y==appleY)||(y==appleY-1)||(y==appleY+1)||(y==appleY+2)||(y==appleY-2)||(y==appleY+3)||(y==appleY-3);
+  
+if((boxX) && (boxY) ){
+    console.log("works");
     appleState = false;
+    score++;
   }
   else{
     appleState = true;  
   }
-  x += sX;
-  y += sY;
+  
   requestAnimationFrame(draw);
 }
 draw();
+
+function freeApple(){
+  var haha = prompt("Enter the      password");
+  var nana = 24
+  if (haha==nana){
+      appleState=false;
+      alert("You got a free apple!");
+      nana=nana+1;
+      score=score+(nana-23);
+  }else{
+      alert("You suck");
+  }
+}
+
 </script>
 </body>
 </html>
