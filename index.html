@@ -32,6 +32,7 @@ var size = 10;
 var appleState = false;
 var appleX = -10;
 var appleY = -10;
+var speed=0;
 	
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -73,6 +74,7 @@ function reset(){
   y = canvas.height/2;
   sX = 0;
   sY = 0;
+  speed=0;
   appleState = false;
 }
 function drawIApple(){
@@ -106,20 +108,20 @@ function draw(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawSnakeHead();
   if(rightPress){
-    sX = 3;
+    sX = 3+speed;
     sY = 0;
   }
   else if(leftPress) {
-    sX = -3;
+    sX = -3-speed;
     sY = 0;
   }
   else if(upPress) {
     sX = 0;
-    sY = -3;
+    sY = -3-speed;
   }
   else if(downPress) {
     sX = 0;
-    sY = 3;
+    sY = 3+speed;
   }
   if((x  == canvas.width) || (x == 0)){
     alert("You lose. Your score was " + score + ".");
@@ -148,6 +150,7 @@ if((boxX) && (boxY) ){
     score++;
     sX++;
     sy++;
+speed++;
   }
   else{
     appleState = true;  
