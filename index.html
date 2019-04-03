@@ -33,7 +33,7 @@ var appleState = false;
 var appleX = -10;
 var appleY = -10;
 var speed=0;
-	
+
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 	
@@ -75,6 +75,7 @@ function reset(){
   sX = 0;
   sY = 0;
   speed=0;
+  nana=24;
   appleState = false;
 }
 function drawIApple(){
@@ -85,7 +86,7 @@ function drawIApple(){
  ctx.fillStyle = 'red';
  ctx.strokestyle = 'darkred';
  ctx.fillRect(appleX, appleY, 10, 10);
- ctx.strokeRect(appleX, appleY, 10, 10);
+ ctx.strokeRect(appleX, appleY, 10, 10);//what happens if i change the 3rd and 4th values for rect 
   appleState = true;
  }
 }
@@ -123,11 +124,12 @@ function draw(){
     sX = 0;
     sY = 3+speed;
   }
-  if((x  == canvas.width) || (x == 0)){
+  
+  if(x>canvas.width || x < 0){
     alert("You lose. Your score was " + score + ".");
     reset();
   }
-   if(!(y < canvas.height) || !(y > 0)){
+   if(y > canvas.height || y < 0){
     alert("You lose. Your score was " + score + ".");
     reset();
   }
@@ -140,28 +142,26 @@ function draw(){
   console.log(appleX);
   console.log(appleY);
 
+var wX=(x-2)||(x-1)||x||(x+1)||(x+2);
+var wY=(y-2)||(y-1)||y||(y+1)||(y+2);
+var boxX= (wX==appleX)||(wX==appleX-1)||(wX==appleX+1)||(wX==appleX+2)||(wX==appleX-2)||(wX==appleX+3)||(wX==appleX-3);
+var boxY= (wY==appleY)||(wY==appleY-1)||(wY==appleY+1)||(wY==appleY+2)||(wY==appleY-2)||(wY==appleY+3)||(wY==appleY-3);
 
-var boxX= (x==appleX)||(x==appleX-1)||(x==appleX+1)||(x==appleX+2)||(x==appleX-2)||(x==appleX+3)||(x==appleX-3);
-var boxY= (y==appleY)||(y==appleY-1)||(y==appleY+1)||(y==appleY+2)||(y==appleY-2)||(y==appleY+3)||(y==appleY-3);
-  
-if((boxX) && (boxY) ){
+if((boxX) && (boxY)){
     console.log("works");
     appleState = false;
     score++;
-    sX++;
-    sy++;
-speed++;
+    speed++;
   }
   else{
     appleState = true;  
   }
-  
-  requestAnimationFrame(draw);
+requestAnimationFrame(draw);
 }
 draw();
 
 function freeApple(){
-  var haha = prompt("Enter the      password");
+  var haha = prompt("Enter the password");
   var nana = 24
   if (haha==nana){
       appleState=false;
