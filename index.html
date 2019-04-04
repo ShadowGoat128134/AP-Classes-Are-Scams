@@ -15,10 +15,10 @@
 
 <p style="margin:50px"></p>
 	
- <button style ="margin-left:25px"  type="button" onclick= "freeApple()">Click Me!</button>
-
- <p style="float: right" ></p>
-<button style="margin-left: 700px" type="button" onclick= "reset()">Reset</button>
+<button type="button" onclick= "freeApple()">Click Me!</button>
+	
+<p style="float: right" ></p>
+<button type="button" onclick= "reset()">Reset</button>
 	
 <script>
 var canvas = document.getElementById("Snakeplane");
@@ -103,7 +103,7 @@ function drawScore() {
 function drawSpeed() {
   ctx.font = "16px Arial";
   ctx.fillStyle = "#0095DD";
-  ctx.fillText("Score: "+speed, 8, 930);
+  ctx.fillText("Speed: "+speed, 930, 20);
 }
 function drawCApple(){
 if (appleState == true){
