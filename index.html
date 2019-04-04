@@ -33,7 +33,6 @@ var appleState = false;
 var appleX = -10;
 var appleY = -10;
 var speed=0;
-
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 	
@@ -137,21 +136,17 @@ function draw(){
    drawCApple();
   x += sX;
   y += sY;
-  console.log(x);
-  console.log(y);
-  console.log(appleX);
-  console.log(appleY);
+//   console.log(x);
+//   console.log(y);
+//   console.log(appleX);
+//   console.log(appleY);
+  
 
-var wX=(x-2)||(x-1)||x||(x+1)||(x+2);
-var wY=(y-2)||(y-1)||y||(y+1)||(y+2);
-var boxX= (wX==appleX)||(wX==appleX-1)||(wX==appleX+1)||(wX==appleX+2)||(wX==appleX-2)||(wX==appleX+3)||(wX==appleX-3);
-var boxY= (wY==appleY)||(wY==appleY-1)||(wY==appleY+1)||(wY==appleY+2)||(wY==appleY-2)||(wY==appleY+3)||(wY==appleY-3);
-
-if((boxX) && (boxY)){
+if (x + size > appleX && x < appleX+ size && y + size > appleY && y < appleY+size){//DISTANCE COLLISION METHOD
     console.log("works");
     appleState = false;
     score++;
-    speed++;
+    speed+=1/2;
   }
   else{
     appleState = true;  
@@ -159,7 +154,6 @@ if((boxX) && (boxY)){
 requestAnimationFrame(draw);
 }
 draw();
-
 var nana = 24
 function freeApple(){
   var haha = prompt("Enter the password");
@@ -168,11 +162,11 @@ function freeApple(){
       alert("You got a free apple!");
       nana=nana+1;
       score=score+(nana-23);
+      speed++;
   }else{
       alert("You suck");
   }
 }
-
 </script>
 </body>
 </html>
