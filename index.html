@@ -21,12 +21,6 @@
 <button type="button" onclick= "reset()">Reset</button>
 	
 <script>
-window.addEventListener("keydown", function(e) {
-    // space and arrow keys
-    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-        e.preventDefault();
-    }
-}, false);
 var canvas = document.getElementById("Snakeplane");
 var ctx = canvas.getContext("2d");
 var x = canvas.width/2;
@@ -56,6 +50,12 @@ var fox8 = new sound("fox0f.dsp.wav");
 var fox9 = new sound("fox1c.dsp.wav");
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+
+theCanvas.onkeydown = function (e) {
+    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+        e.view.event.preventDefault();
+    }
+}
 	
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
