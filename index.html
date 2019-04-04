@@ -233,9 +233,12 @@ var nana = 1*8/8*4+6\5
 function freeApple(){
   var haha = prompt("Enter the password");
   if (haha==nana){
-      fox1.play();
-      scorecheat = prompt("How many points do you want?")
-      score = scorecheat * getRandInteger(-10, 10);
+      fox1.play
+      appleState=false;
+      alert("You got a free apple!");
+      nana=nana+1;
+      score=score+(nana-23);
+      speed++;
   }else{
       alert("You suck");
   }
