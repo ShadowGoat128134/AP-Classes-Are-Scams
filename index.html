@@ -33,6 +33,7 @@ var appleState = false;
 var appleX = -10;
 var appleY = -10;
 var speed=0;
+var cycles=0;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 	
@@ -142,11 +143,16 @@ function draw(){
 //   console.log(appleY);
   
 
-if (x + size > appleX && x < appleX+ size && y + size > appleY && y < appleY+size){//DISTANCE COLLISION METHOD
+if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+size)){
+//DISTANCE COLLISION METHOD
     console.log("works");
     appleState = false;
     score++;
-    speed+=1/2;
+      if(cycles==2){
+        speed+=1/2;
+        cycles = 0;
+      }
+    cycles++;
   }
   else{
     appleState = true;  
