@@ -169,6 +169,7 @@ function draw(){
   
   if(x>canvas.width || x < 0){
     alert("You lose. Your score was " + score + ".");
+    fox1.play
     reset();
   }
    if(y > canvas.height || y < 0){
@@ -190,7 +191,7 @@ if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+
     console.log("works");
     appleState = false;
     score++;
-    fox1.play();
+    fox2.play();
       if(cycles==2){
         speed += 1;
         cycles = 0;
