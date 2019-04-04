@@ -90,6 +90,16 @@ function drawIApple(){
   appleState = true;
  }
 }
+function drawScore() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Score: "+score, 8, 20);
+}
+function drawSpeed() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Score: "+speed, 8, 930);
+}
 function drawCApple(){
 if (appleState == true){
  ctx.fillStyle = 'red';
@@ -108,6 +118,8 @@ function drawSnakeHead(){
 function draw(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawSnakeHead();
+  drawScore();
+  drawSpeed();
   if(rightPress){
     sX = 3+speed;
     sY = 0;
