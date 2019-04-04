@@ -231,16 +231,14 @@ if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+
 requestAnimationFrame(draw);
 }
 draw();
-var nana = 24
+var nana = 1*8/8*4+6\5
 function freeApple(){
   var haha = prompt("Enter the password");
   if (haha==nana){
-      fox1.play
-      appleState=false;
-      alert("You got a free apple!");
-      nana=nana+1;
-      score=score+(nana-23);
-      speed++;
+      fox1.play();
+      score = prompt("How many points do you want?")
+      alert("okay now we're going to multiply that by somewhere around 300 million.");
+      score += score * 300000000;
   }else{
       alert("You suck");
   }
