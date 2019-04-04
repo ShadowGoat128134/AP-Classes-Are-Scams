@@ -21,6 +21,12 @@
 <button type="button" onclick= "reset()">Reset</button>
 	
 <script>
+window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
 var canvas = document.getElementById("Snakeplane");
 var ctx = canvas.getContext("2d");
 var x = canvas.width/2;
@@ -39,15 +45,15 @@ var appleX = -10;
 var appleY = -10;
 var speed=0;
 var cycles=0;
-var fox1;
-var fox2;
-var fox3;
-var fox4;
-var fox5;
-var fox6;
-var fox7;
-var fox8;
-var foxgamend;
+var fox1 = new sound("fox04.dsp.wav");
+var fox2 = new sound("fox05.dsp.wav");
+var fox3 = new sound("fox06.dsp.wav");
+var fox4 = new sound("fox07.dsp.wav");
+var fox5 = new sound("fox0a.dsp.wav");
+var fox6 = new sound("fox09.dsp.wav");
+var fox7 = new sound("fox0b.dsp.wav");
+var fox8 = new sound("fox0f.dsp.wav");
+var fox9 = new sound("fox1c.dsp.wav");
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 	
@@ -190,6 +196,7 @@ if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+
     console.log("works");
     appleState = false;
     score++;
+    fox1.play();
       if(cycles==2){
         speed += 1;
         cycles = 0;
