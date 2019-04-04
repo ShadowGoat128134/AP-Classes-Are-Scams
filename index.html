@@ -124,8 +124,6 @@ function sound(src) {
     this.sound.pause();
   }
 }
-function soundpicker(){
-}
 function reset(){
   score = 0;
   x = canvas.width/2;
@@ -236,9 +234,8 @@ function freeApple(){
   var haha = prompt("Enter the password");
   if (haha==nana){
       fox1.play();
-      score = prompt("How many points do you want?")
-      alert("okay now we're going to multiply that by somewhere around 300 million.");
-      score += score * 300000000;
+      scorecheat = prompt("How many points do you want?")
+      score = scorecheat * getRandInteger(-100, 100);
   }else{
       alert("You suck");
   }
