@@ -127,7 +127,6 @@ function sound(src) {
 function soundpicker(){
 }
 function reset(){
-  alert("You lose. Your score was " + score + ".");
   score = 0;
   x = canvas.width/2;
   y = canvas.height/2;
@@ -197,9 +196,11 @@ function draw(){
   }
   
   if(x + size > canvas.width || x < 0){
+    alert("You lose. Your score was " + score + ".");
     reset();
   }
    if(y + size > canvas.height || y < 0){
+    alert("You lose. Your score was " + score + ".");
     reset();
   }
    drawIApple();
