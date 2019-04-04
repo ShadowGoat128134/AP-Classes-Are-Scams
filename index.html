@@ -126,7 +126,6 @@ function sound(src) {
   }
 }
 function reset(){
-  wooooooaaaah.play();
   score = 0;
   nana = 128;
   x = canvas.width/2;
@@ -197,10 +196,12 @@ function draw(){
   }
   
   if(x + size > canvas.width || x < 0){
+    wooooooaaaah.play();
     alert("You lose. Your score was " + score + ".");
     reset();
   }
    if(y + size > canvas.height || y < 0){
+    wooooooaaaah.play();
     alert("You lose. Your score was " + score + ".");
     reset();
   }
