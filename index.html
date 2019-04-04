@@ -186,44 +186,44 @@ function draw(){
   if(rightPress){
     if(rmove = false){	  
     foxshine.play();
-    }
     lmove = false;
-    rmove = true;
-    dmove = false;
-    umove = false;  
+    rmove = false;
+    dmove = true;
+    umove = false;        
+    } 
     sX = 3+speed;
     sY = 0;
   }
   else if(leftPress) {
     if(lmove = false){	  
     foxshine.play();
-    }
-    lmove = true;
+    lmove = false;
     rmove = false;
-    dmove = false;
-    umove = false;  
+    dmove = true;
+    umove = false;       
+    } 
     sX = -3-speed;
     sY = 0;
   }
   else if(upPress) {
     if(umove = false){	  
     foxshine.play();
-    }
     lmove = false;
     rmove = false;
-    dmove = false;
-    umove = true;  
+    dmove = true;
+    umove = false;        
+    }
     sX = 0;
     sY = -3-speed;
   }
   else if(downPress) {
     if(dmove = false){	  
     foxshine.play();
-    }
     lmove = false;
     rmove = false;
     dmove = true;
-    umove = false;  
+    umove = false;      
+    }    
     sX = 0;
     sY = 3+speed;
   }
