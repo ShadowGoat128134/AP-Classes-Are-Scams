@@ -51,6 +51,10 @@ var fox8 = new sound("fox0f.dsp.wav");
 var fox9 = new sound("fox1c.dsp.wav");
 var foxshine = new sound("fox20.dsp[1].wav");
 var wooooooaaaah = new sound("fox0d.dsp.wav");
+var lmove = false;
+var rmove = false;
+var umove = false;
+var dmove = false;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
@@ -180,22 +184,46 @@ function draw(){
   drawScore();
   drawSpeed();
   if(rightPress){
+    if(rmove = false && rightPress = true){	  
     foxshine.play();
+    }
+    lmove = false;
+    rmove = true;
+    dmove = false;
+    umove = false;  
     sX = 3+speed;
     sY = 0;
   }
   else if(leftPress) {
+    if(lmove = false && leftPress = true){	  
     foxshine.play();
+    }
+    lmove = true;
+    rmove = false;
+    dmove = false;
+    umove = false;  
     sX = -3-speed;
     sY = 0;
   }
   else if(upPress) {
+    if(umove = false && upPress = true){	  
     foxshine.play();
+    }
+    lmove = false;
+    rmove = false;
+    dmove = false;
+    umove = true;  
     sX = 0;
     sY = -3-speed;
   }
   else if(downPress) {
-    foxshine.play();  
+    if(dmove = false && downPress = true){	  
+    foxshine.play();
+    }
+    lmove = false;
+    rmove = false;
+    dmove = true;
+    umove = false;  
     sX = 0;
     sY = 3+speed;
   }
