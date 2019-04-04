@@ -82,6 +82,33 @@ function keyUpHandler(e) {
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
 }
+function randsound(){
+  var foxnoises = getRndInteger(1, 8);
+  if (foxnoises == 1){
+     fox2.play();  
+  }
+  else if (foxnoises == 2){
+     fox3.play();  
+  }
+  else if (foxnoises == 3){
+     fox4.play();  
+  }
+  else if (foxnoises == 4){
+     fox5.play();  
+  }
+  else if (foxnoises == 5){
+     fox6.play();  
+  }
+  else if (foxnoises == 6){
+     fox7.play();  
+  }
+  else if (foxnoises == 7){
+     fox8.play();  
+  }
+  else if (foxnoises == 8){
+     fox9.play();  
+  }
+}
 function sound(src) {
   this.sound = document.createElement("audio");
   this.sound.src = src;
@@ -169,7 +196,6 @@ function draw(){
   
   if(x>canvas.width || x < 0){
     alert("You lose. Your score was " + score + ".");
-    fox1.play
     reset();
   }
    if(y > canvas.height || y < 0){
@@ -208,6 +234,7 @@ var nana = 24
 function freeApple(){
   var haha = prompt("Enter the password");
   if (haha==nana){
+      fox1.play
       appleState=false;
       alert("You got a free apple!");
       nana=nana+1;
