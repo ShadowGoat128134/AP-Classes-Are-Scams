@@ -184,7 +184,7 @@ function draw(){
   drawScore();
   drawSpeed();
   if(rightPress){
-    if(rmove = false && rightPress = true){	  
+    if(rmove = false){	  
     foxshine.play();
     }
     lmove = false;
@@ -195,7 +195,7 @@ function draw(){
     sY = 0;
   }
   else if(leftPress) {
-    if(lmove = false && leftPress = true){	  
+    if(lmove = false){	  
     foxshine.play();
     }
     lmove = true;
@@ -206,7 +206,7 @@ function draw(){
     sY = 0;
   }
   else if(upPress) {
-    if(umove = false && upPress = true){	  
+    if(umove = false){	  
     foxshine.play();
     }
     lmove = false;
@@ -217,7 +217,7 @@ function draw(){
     sY = -3-speed;
   }
   else if(downPress) {
-    if(dmove = false && downPress = true){	  
+    if(dmove = false){	  
     foxshine.play();
     }
     lmove = false;
