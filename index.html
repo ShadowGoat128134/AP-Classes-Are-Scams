@@ -196,10 +196,10 @@ function draw(){
     sY = 3+speed;
   }
   
-  if(x>canvas.width || x < 0){
+  if(x + size > canvas.width || x < 0){
     reset();
   }
-   if(y > canvas.height || y < 0){
+   if(y + size > canvas.height || y < 0){
     reset();
   }
    drawIApple();
