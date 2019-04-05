@@ -187,8 +187,8 @@ function draw(){
     if(rmove == false){	  
     foxshine.play();
     lmove = false;
-    rmove = false;
-    dmove = true;
+    rmove = true;
+    dmove = false;
     umove = false;        
     } 
     sX = 3+speed;
@@ -197,9 +197,9 @@ function draw(){
   else if(leftPress) {
     if(lmove == false){	  
     foxshine.play();
-    lmove = false;
+    lmove = true;
     rmove = false;
-    dmove = true;
+    dmove = false;
     umove = false;       
     } 
     sX = -3-speed;
