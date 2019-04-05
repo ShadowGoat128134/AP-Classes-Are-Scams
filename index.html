@@ -55,6 +55,9 @@ var lmove = false;
 var rmove = false;
 var umove = false;
 var dmove = false;
+var red = 0;
+var green = 0;
+var blue = 255;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
@@ -178,7 +181,7 @@ if (appleState == true){
 function drawSnakeHead(){
   ctx.beginPath();
   ctx.rect(x, y, size, size);
-  ctx.fillStyle = "#006400";
+  ctx.fillStyle = rgb(red,green,blue);
   ctx.fill();
   ctx.closePath();
 }
@@ -257,6 +260,9 @@ if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+
     console.log("works");
     appleState = false;
     score++;
+    red = getRndInteger(0, 255);
+    green = getRndInteger(0, 255);
+    blue = getRndInteger(0, 255);
     randsound();
       if(cycles==2){
         speed += 1;
