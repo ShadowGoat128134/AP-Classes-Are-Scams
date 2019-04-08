@@ -312,7 +312,7 @@ function draw(){
     reset();
   }
 	
-  if((x + size > projectilexstart && x < projectilexstart+ pSize) && (y + size > projectileystart && y < projectileystart+pSize)){
+  if((x + size > projectileystart && x < projectilexstart+ pSize) && (y + size > projectileystart && y < projectileystart+pSize)){
     wooooooaaaah.play();
     alert("You lose. Your score was " + score + ".");
     reset();
