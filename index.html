@@ -179,9 +179,9 @@ if (appleState == true){
  ctx.strokeRect(appleX, appleY, 10, 10);
 }
 }
-	var rColor ="#05f439";
+var rColor ="#05f439";
 function randColor(){
-var cColor = getRndInteger(1, 4);
+  var cColor = getRndInteger(1, 4);
   if (cColor == 1){
      rColor = "#05f439"; 
   }
@@ -196,7 +196,7 @@ randColor();
 function drawSnakeHead(){
   ctx.beginPath();
   ctx.rect(x, y, size, size);
-	if(score>10&&score<15){//conditional should be changed
+	if(score>=10&&){//conditional should be changed
     	randColor();
   	}
   ctx.fillStyle = (rColor);
