@@ -28,7 +28,6 @@ var x = canvas.width/2;
 var y = canvas.height/2;
 var sX = 0;
 var sY = 0;
-var sLength = 5;
 var score = 0;
 var rightPress = false;
 var leftPress = false;
@@ -59,7 +58,7 @@ var red = 0;
 var green = 0;
 var blue = 255;
 var megalovania = new sound("megalovania.mp3");
-var projectilespeed = 1;
+var projectilespeed = 4;
 var projectilexstart = 0;
 var projectileystart = 0;
 var projectileX;
@@ -175,6 +174,14 @@ function drawIApple(){
   appleState = true;
  }
 }
+function drawCApple(){
+if (appleState == true){
+ ctx.fillStyle = 'red';
+ ctx.strokestyle = 'darkred';
+ ctx.fillRect(appleX, appleY, 10, 10);
+ ctx.strokeRect(appleX, appleY, 10, 10);
+ }
+}
 function drawScore() {
   ctx.font = "16px Arial";
   ctx.fillStyle = "#0095DD";
@@ -185,16 +192,9 @@ function drawSpeed() {
   ctx.fillStyle = "#0095DD";
   ctx.fillText("Speed: "+speed, 725, 20);
 }
-function drawCApple(){
-if (appleState == true){
- ctx.fillStyle = 'red';
- ctx.strokestyle = 'darkred';
- ctx.fillRect(appleX, appleY, 10, 10);
- ctx.strokeRect(appleX, appleY, 10, 10);
- }
-}
 function drawIProjectileX(){
-if (score >= 20&&projectileXstate == false){
+if (score >= 20&& projectileXstate == false){
+ projectileXstate = true;
  projectileY = getRndInteger(0, canvas.height - 20);
  ctx.fillStyle = 'white';
  ctx.strokestyle = 'black';
