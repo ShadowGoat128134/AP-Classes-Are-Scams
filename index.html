@@ -315,6 +315,13 @@ function draw(){
     alert("You lose. Your score was " + score + ".");
     reset();
   }
+	
+  if((x + size > projectilexstart && x < projectilexstart+ pSize) && (y + size > projectileystart && y < projectileystart+pSize)){
+    wooooooaaaah.play();
+    alert("You lose. Your score was " + score + ".");
+    reset();
+  }	
+	
   if(score >= 20){
     megalovania.play();
   }
