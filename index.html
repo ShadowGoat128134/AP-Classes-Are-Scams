@@ -58,7 +58,7 @@ var red = 0;
 var green = 0;
 var blue = 255;
 var megalovania = new sound("megalovania.mp3");
-var projectilespeed = 1 + speed;
+var projectilespeed = 0;
 var projectilexstart = -20;
 var projectileystart = -20;
 var projectileX;
@@ -350,6 +350,7 @@ function draw(){
   y += sY;
   projectilexstart += projectilespeed;
   projectileystart += projectilespeed;
+  projectilespeed = speed - 2;
   
 if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+size)){
 //DISTANCE COLLISION METHOD
