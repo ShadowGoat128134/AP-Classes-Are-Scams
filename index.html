@@ -154,8 +154,9 @@ function reset(){
   upPress = false;
   downPress = false;
 }
-function getScore(){
-  amplify.store(prompt
+function getScore1(){
+  amplify.store("name1", prompt("Name?"));
+  amplify.store("score1", score);
 }
 function drawIApple(){
  if(appleState == false){
@@ -270,6 +271,8 @@ function draw(){
     wooooooaaaah.play();
     alert("You lose. Your score was " + score + ".");
     reset();
+    getScore1();
+    alert(name1);
   }
    drawIApple();
    drawCApple();
