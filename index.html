@@ -59,6 +59,14 @@ var red = 0;
 var green = 0;
 var blue = 255;
 var megalovania = new sound("megalovania.mp3");
+var projectilespeed = 7;
+var projectilexstart = 0;
+var projectileystart = 0;
+var projectileX;
+var projectileY;
+var projectileXstate = false;
+var projectileYstate = false;
+var pSize = 20;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
@@ -184,6 +192,41 @@ if (appleState == true){
  ctx.fillRect(appleX, appleY, 10, 10);
  ctx.strokeRect(appleX, appleY, 10, 10);
 }
+function drawIProjectileX(){
+if (score >= 20&&projectileXstate == false){
+ projectileY = getRndInteger(0, canvas.height - 20);
+ ctx.fillStyle = 'white';
+ ctx.strokestyle = 'black';
+ ctx.fillRect(projectileY, 0, pSize, pSize);
+ ctx.strokeRect(projectileY, 0, pSize, pSize);
+ }
+}
+function drawCProjectileX(){
+ if(projectileXstate = true){
+ ctx.fillStyle = 'white';
+ ctx.strokestyle = 'black';
+ ctx.fillRect(projectileY, projectilexstart, pSize, pSize);
+ ctx.strokeRect(projectileY, projectilexstart, pSize, pSize);
+ }
+}
+function drawIProjectileY(){
+if (score >= 20&&projectileYstate == false){
+ projectileYstate = true;
+ projectileX = getRndInteger(0, canvas.height - 20);
+ ctx.fillStyle = 'white';
+ ctx.strokestyle = 'black';
+ ctx.fillRect(0, projectileX, pSize, pSize);
+ ctx.strokeRect(0, projectileX, pSize, pSize);
+ }
+}
+function drawCProjectileY(){
+ if(projectileYstate = true){
+ ctx.fillStyle = 'white';
+ ctx.strokestyle = 'black';
+ ctx.fillRect(projectileystart, projectileX, pSize, pSize);
+ ctx.strokeRect(projectileystart, projectileX, pSize, pSize);
+ }
+}
 }
 var rColor ="#05f439";
 function randColor(){
@@ -273,8 +316,20 @@ function draw(){
   }
    drawIApple();
    drawCApple();
+   drawIProjectileX();
+   drawCProjectileX();
+   drawIProjectileY();
+   drawCProjectileY();
+   if(projectilexstart >= canvas.height){
+         projectileXstate = false;
+   }
+   if(projectileystart >= canvas.height){
+         projectileYstate = false;
+   }
   x += sX;
   y += sY;
+  projectilexstart += projectilespeed;
+  projectileystart += projectilespeed;
 //   console.log(x);
 //   console.log(y);
 //   console.log(appleX);
