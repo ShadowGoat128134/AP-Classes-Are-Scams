@@ -318,7 +318,11 @@ function draw(){
     alert("You lose. Your score was " + score + ".");
     reset();
   }
-if(score >= 20){ 	
+if(score >= 20){ 
+   drawIProjectileX();
+   drawCProjectileX();
+   drawIProjectileY();
+   drawCProjectileY();
   projectilespeed = 8;
   if((y + size > projectilexstart && y < projectilexstart+ pSize) && (x + size > projectileY && x < projectileY+pSize)){
     wooooooaaaah.play();
@@ -338,10 +342,6 @@ if(score >= 20){
   }
    drawIApple();
    drawCApple();
-   drawIProjectileX();
-   drawCProjectileX();
-   drawIProjectileY();
-   drawCProjectileY();
    if(projectilexstart >= canvas.height){
          projectileXstate = false;
          projectilexstart = 0;   
