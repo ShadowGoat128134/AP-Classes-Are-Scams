@@ -191,6 +191,7 @@ if (appleState == true){
  ctx.strokestyle = 'darkred';
  ctx.fillRect(appleX, appleY, 10, 10);
  ctx.strokeRect(appleX, appleY, 10, 10);
+ }
 }
 function drawIProjectileX(){
 if (score >= 20&&projectileXstate == false){
@@ -314,18 +315,18 @@ function draw(){
   if(score >= 20){
     megalovania.play();
   }
-   //drawIApple();
-  // drawCApple();
-   //drawIProjectileX();
-  // drawCProjectileX();
-   //drawIProjectileY();
-   //drawCProjectileY();
-   //if(projectilexstart >= canvas.height){
-    //     projectileXstate = false;
-  // }
-   //if(projectileystart >= canvas.width){
- //        projectileYstate = false;
-   //}
+   drawIApple();
+   drawCApple();
+   drawIProjectileX();
+   drawCProjectileX();
+   drawIProjectileY();
+   drawCProjectileY();
+   if(projectilexstart >= canvas.height){
+         projectileXstate = false;
+   }
+   if(projectileystart >= canvas.width){
+         projectileYstate = false;
+   }
   x += sX;
   y += sY;
   projectilexstart += projectilespeed;
