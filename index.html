@@ -142,6 +142,7 @@ function reset(){
   sY = 0;
   speed=0;
   nana=128;
+  randColor();
   appleState = false;
   rightPress = false;
   leftPress = false;
@@ -178,10 +179,27 @@ if (appleState == true){
  ctx.strokeRect(appleX, appleY, 10, 10);
 }
 }
+	var rColor ="#05f439";
+function randColor(){
+var cColor = getRndInteger(1, 4);
+  if (cColor == 1){
+     rColor = "#05f439"; 
+  }
+  else if (cColor == 2){
+     rColor= "#ff0000";
+  }
+  else if(cColor==3) {
+     rColor= "#06f";
+}
+}
+randColor();
 function drawSnakeHead(){
   ctx.beginPath();
   ctx.rect(x, y, size, size);
-  ctx.fillStyle = (red,green,blue);
+	if(score>10&&score<15){//conditional should be changed
+    	randColor();
+  	}
+  ctx.fillStyle = (rColor);
   ctx.fill();
   ctx.closePath();
 }
@@ -264,6 +282,7 @@ if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+
     green = getRndInteger(0, 255);
     blue = getRndInteger(0, 255);
     randsound();
+    randColor();
       if(cycles==2){
         speed += 1;
         cycles = 0;
@@ -286,6 +305,7 @@ function freeApple(){
       nana=nana+1;
       score=score+(nana*3744576029);
       speed++;
+      randColor();
   }else{
       alert("You suck");
       score=score+(nana*-3744576029);
