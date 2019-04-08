@@ -28,7 +28,6 @@ var x = canvas.width/2;
 var y = canvas.height/2;
 var sX = 0;
 var sY = 0;
-var sLength = 5;
 var score = 0;
 var rightPress = false;
 var leftPress = false;
@@ -59,9 +58,9 @@ var red = 0;
 var green = 0;
 var blue = 255;
 var megalovania = new sound("megalovania.mp3");
-var projectilespeed = 1;
-var projectilexstart = 0;
-var projectileystart = 0;
+var projectilespeed = 1 + speed;
+var projectilexstart = -20;
+var projectileystart = -20;
 var projectileX;
 var projectileY;
 var projectileXstate = false;
@@ -151,6 +150,10 @@ function reset(){
   speed=0;
   nana=128;
   randColor();
+  projectileXstate = false;
+  projectileYstate = false;
+  projectilexstart = -20;
+  projectileystart = -20;
   megalovania.stop();
   appleState = false;
   rightPress = false;
@@ -175,6 +178,14 @@ function drawIApple(){
   appleState = true;
  }
 }
+function drawCApple(){
+if (appleState == true){
+ ctx.fillStyle = 'red';
+ ctx.strokestyle = 'darkred';
+ ctx.fillRect(appleX, appleY, 10, 10);
+ ctx.strokeRect(appleX, appleY, 10, 10);
+ }
+}
 function drawScore() {
   ctx.font = "16px Arial";
   ctx.fillStyle = "#0095DD";
@@ -185,17 +196,10 @@ function drawSpeed() {
   ctx.fillStyle = "#0095DD";
   ctx.fillText("Speed: "+speed, 725, 20);
 }
-function drawCApple(){
-if (appleState == true){
- ctx.fillStyle = 'red';
- ctx.strokestyle = 'darkred';
- ctx.fillRect(appleX, appleY, 10, 10);
- ctx.strokeRect(appleX, appleY, 10, 10);
- }
-}
 function drawIProjectileX(){
-if (score >= 20&&projectileXstate == false){
- projectileY = getRndInteger(20, canvas.height - 20);
+if (score >= 20&& projectileXstate == false){
+ projectileXstate = true;
+ projectileY = getRndInteger(0, canvas.height - 20);
  ctx.fillStyle = 'white';
  ctx.strokestyle = 'black';
  ctx.fillRect(projectileY, 0, pSize, pSize);
@@ -306,18 +310,11 @@ function draw(){
     alert("You lose. Your score was " + score + ".");
     reset();
   }
-  if(y + size > canvas.height || y < 0){
+   if(y + size > canvas.height || y < 0){
     wooooooaaaah.play();
     alert("You lose. Your score was " + score + ".");
     reset();
   }
-	
-  if((x + size > projectileystart && x < projectilexstart+ pSize) && (y + size > projectileystart && y < projectileystart+pSize)){
-    wooooooaaaah.play();
-    alert("You lose. Your score was " + score + ".");
-    reset();
-  }
-	
   if(score >= 20){
     megalovania.play();
   }
@@ -329,9 +326,11 @@ function draw(){
    drawCProjectileY();
    if(projectilexstart >= canvas.height){
          projectileXstate = false;
+         projectilexstart = 0;   
    }
    if(projectileystart >= canvas.width){
          projectileYstate = false;
+         projectileystart = 0;
    }
   x += sX;
   y += sY;
@@ -341,7 +340,7 @@ function draw(){
 //   console.log(y);
 //   console.log(appleX);
 //   console.log(appleY);
-
+  
 if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+size)){
 //DISTANCE COLLISION METHOD
     console.log("works");
