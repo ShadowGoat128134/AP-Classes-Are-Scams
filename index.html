@@ -199,7 +199,7 @@ function drawSpeed() {
 function drawIProjectileX(){
 if (score >= 20&& projectileXstate == false){
  projectileXstate = true;
- projectileY = getRndInteger(0, canvas.height - 20);
+ projectileY = getRndInteger(0, canvas.width - 20);
  ctx.fillStyle = 'white';
  ctx.strokestyle = 'black';
  ctx.fillRect(projectileY, 0, pSize, pSize);
