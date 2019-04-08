@@ -259,8 +259,7 @@ function draw(){
   if(score >= 20 && megalostate = false){
     megalovania.play();
     megalostate = true();
-    setTimeout(196,000);
-    megalostate = true;
+    setTimeout(function(){megalostate = true}, 196,000);
   }
   if(x + size > canvas.width || x < 0){
     wooooooaaaah.play();
