@@ -59,7 +59,6 @@ var red = 0;
 var green = 0;
 var blue = 255;
 var megalovania = new sound("megalovania.mp3");
-var megalostate = false;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
@@ -150,6 +149,11 @@ function reset(){
   leftPress = false;
   upPress = false;
   downPress = false;
+}
+function megaloplayer(){
+  if(score >= 20 && megalovania.paused){
+    megalovania.play();
+  }
 }
 function drawIApple(){
  if(appleState == false){
@@ -254,12 +258,6 @@ function draw(){
     sX = 0;
     sY = 3+speed;
   }
-  
-  if(score >= 20 && megalostate == false){
-    megalovania.play();
-    megalostate = true();
-    setTimeout(function(){megalostate = true}, 196000);
-  }
   if(x + size > canvas.width || x < 0){
     wooooooaaaah.play();
     alert("You lose. Your score was " + score + ".");
@@ -270,6 +268,7 @@ function draw(){
     alert("You lose. Your score was " + score + ".");
     reset();
   }
+   megaloplayer();
    drawIApple();
    drawCApple();
   x += sX;
