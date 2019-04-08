@@ -58,11 +58,8 @@ var dmove = false;
 var red = 0;
 var green = 0;
 var blue = 255;
-//var name1 = amplify.store("name1");
-//var name2 = amplify.store("name2");
-//var name3 = amplify.store("name3");
-//var name4 = amplify.store("name4");
-//var name5 = amplify.store("name5");
+var megalovania = new sound("megalovania.mp3");
+var megalostate = false;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
@@ -148,6 +145,7 @@ function reset(){
   speed=0;
   nana=128;
   randColor();
+  megalostate.pause();
   appleState = false;
   rightPress = false;
   leftPress = false;
@@ -262,6 +260,12 @@ function draw(){
     sY = 3+speed;
   }
   
+  if(score >= 20 && megalostate = false){
+    megalovania.play();
+    megalostate = true();
+    setTimeout(196,000);
+    megalostate = true;
+  }
   if(x + size > canvas.width || x < 0){
     wooooooaaaah.play();
     alert("You lose. Your score was " + score + ".");
@@ -271,8 +275,6 @@ function draw(){
     wooooooaaaah.play();
     alert("You lose. Your score was " + score + ".");
     reset();
-    //getScore1();
-    //alert(name1);
   }
    drawIApple();
    drawCApple();
