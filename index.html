@@ -58,7 +58,7 @@ var red = 0;
 var green = 0;
 var blue = 255;
 var megalovania = new sound("megalovania.mp3");
-var projectilespeed = 8;
+var projectilespeed = 0;
 var projectilexstart = -20;
 var projectileystart = -20;
 var projectileX;
@@ -155,7 +155,8 @@ function reset(){
   projectilexstart = -20;
   projectileystart = -20;
   projectileX = 0;
-  projectileY = 0;	
+  projectileY = 0;
+  projectilespeed = 0;
   megalovania.stop();
   appleState = false;
   rightPress = false;
@@ -318,6 +319,7 @@ function draw(){
     reset();
   }
 if(score >= 20){ 	
+  projectilespeed = 8;
   if((y + size > projectilexstart && y < projectilexstart+ pSize) && (x + size > projectileY && x < projectileY+pSize)){
     wooooooaaaah.play();
     alert("You lose. Your score was " + score + ".");
