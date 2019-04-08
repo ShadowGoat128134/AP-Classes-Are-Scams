@@ -322,9 +322,11 @@ function draw(){
    drawCProjectileY();
    if(projectilexstart >= canvas.height){
          projectileXstate = false;
+         projectilexstart = 0;   
    }
    if(projectileystart >= canvas.width){
          projectileYstate = false;
+         projectileystart = 0;
    }
   x += sX;
   y += sY;
