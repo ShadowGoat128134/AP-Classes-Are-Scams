@@ -62,7 +62,6 @@ var megalovania = new sound("megalovania.mp3");
 var megalostate = false;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
         rightPress = true;
@@ -130,10 +129,10 @@ function sound(src) {
   document.body.appendChild(this.sound);
   this.play = function(){
     this.sound.play();
-  }
+  };
   this.stop = function(){
     this.sound.pause();
-  }
+  };
 }
 function reset(){
   score = 0;
@@ -256,10 +255,10 @@ function draw(){
     sY = 3+speed;
   }
   
-  if(score >= 20 && megalostate = false){
+  if(score >= 20 && megalostate == false){
     megalovania.play();
     megalostate = true();
-    setTimeout(function(){megalostate = true}, 196,000);
+    setTimeout(function(){megalostate = true}, 196000);
   }
   if(x + size > canvas.width || x < 0){
     wooooooaaaah.play();
@@ -280,7 +279,6 @@ function draw(){
 //   console.log(appleX);
 //   console.log(appleY);
   
-
 if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+size)){
 //DISTANCE COLLISION METHOD
     console.log("works");
