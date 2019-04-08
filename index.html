@@ -268,7 +268,9 @@ function draw(){
     alert("You lose. Your score was " + score + ".");
     reset();
   }
-   megaloplayer();
+  if(score >= 20){
+    megalovania.play();
+  }
    drawIApple();
    drawCApple();
   x += sX;
