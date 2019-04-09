@@ -361,6 +361,8 @@ if(score >= 20){
   if(score >= 20){
     megalovania.play();
   }
+  projectilespeedy = speed-5;
+  projectilespeedx = speed-5;
    drawIApple();
    drawCApple();
    if(projectilexstart >= canvas.height){
@@ -370,18 +372,12 @@ if(score >= 20){
    else if(projectilexstart <= 30){
 	projectilespeedx = 1;
    }
-   else{
-  projectilespeedx = speed-5;
-   }
    if(projectileystart >= canvas.width){
          projectileYstate = false;
          projectileystart = 0;
    }
    else if(projectileystart <= 30){
 	projectilespeedy = 1;
-   }
-   else{
-  projectilespeedy = speed-5;
    }
   x += sX;
   y += sY;
