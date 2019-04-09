@@ -76,7 +76,8 @@ var red = 0;
 var green = 0;
 var blue = 255;
 var megalovania = new sound("megalovania.mp3");
-var projectilespeed = 0;
+var projectilespeedx = 0;
+var projectilespeedy = 0;
 var projectilexstart = -20;
 var projectileystart = -20;
 var projectileX;
@@ -344,9 +345,10 @@ if(score >= 20){
    drawIProjectileY();
    drawCProjectileY(); 
   if(speed > 3){
-  projectilespeed = speed-5;
+  projectilespeedx = speed-5;
+  projectilespeedx = speed-5;
   }  
-  if((y + size > projectilexstart && y < projectilexstart+ pSize) && (x + size > projectileY && x < projectileY+pSize)){
+  if((y + size > project1ilexstart && y < projectilexstart+ pSize) && (x + size > projectileY && x < projectileY+pSize)){
     wooooooaaaah.play();
     alert("You lose. Your score was " + score + ".");
     reset();
@@ -369,19 +371,19 @@ if(score >= 20){
          projectilexstart = 0;   
    }
    else if(projectilexstart <= 30){
-	projectilespeed = 1;
+	projectilespeedx = 1;
    }
    if(projectileystart >= canvas.width){
          projectileYstate = false;
          projectileystart = 0;
    }
    else if(projectileystart <= 30){
-	projectilespeed = 1;
+	projectilespeedy = 1;
    }
   x += sX;
   y += sY;
-  projectilexstart += projectilespeed;
-  projectileystart += projectilespeed;  
+  projectilexstart += projectilespeedx;
+  projectileystart += projectilespeedy;  
   
 if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+size)){
 //DISTANCE COLLISION METHOD
