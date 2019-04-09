@@ -84,6 +84,7 @@ var projectileY;
 var projectileXstate = false;
 var projectileYstate = false;
 var pSize = 20;
+var there = new sound("wave2.wav");
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
@@ -184,6 +185,7 @@ function reset(){
 }
 function megaloplayer(){
   if(score >= 20){
+    there.play();
     megalovania.play();
   }
 }
