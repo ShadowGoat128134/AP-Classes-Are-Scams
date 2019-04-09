@@ -368,14 +368,14 @@ if(score >= 20){
          projectileXstate = false;
          projectilexstart = 0;   
    }
-   if else(projectilexstart >= 30){
+   else if(projectilexstart >= 30){
 	projectilespeed = 1;
    }
    if(projectileystart >= canvas.width){
          projectileYstate = false;
          projectileystart = 0;
    }
-   if else(projectileystart <= 30){
+   else if(projectileystart <= 30){
 	projectilespeed = 1;
    }
   x += sX;
