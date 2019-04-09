@@ -16,23 +16,26 @@
 
 <p style="margin:50px"></p>
 	
-<button style ="margin-left:30px"  type="button" onclick= "freeApple()">Cheat</button>
+<button style ="margin-left:25px"  type="button" onclick= "freeApple()">Cheat</button>
 
 
 <button style="margin-right:30px; float: right;" type="button" onclick= "reset()">Reset</button>
-
-<button style="margin:30px; text-allign: middle;" type="button" onclick= "upPress = true;rightPress = false;leftPress = false;downPress = false;">Up</button>
-  <button style="margin:30px; text-allign: middle;" type="button" onclick= "downPress = true;rightPress = false;
+ 
+  
+  <button style="display: block;width:40%;font-size: 25px;margin:15px;"type="button" onclick= "upPress = true;rightPress = false;
+leftPress = false;
+downPress = false;
+">Up</button>
+ 
+  <button style="display: inline-block;width:25%;font-size: 25px;margin:15px;margin-left:400px;"type="button" onclick= "leftPress = true;rightPress = false;
+upPress = false;downPress = false;"> Left</button>
+  <button style="display:inline-block;width:25%;font-size: 25px;margin:15px;float:right;" type="button" onclick= "rightPress = true;
+leftPress = false;upPress = false;
+downPress = false;">Right</button>
+   <button style="display:block;width:40%;font-size: 25px;margin:20px;"type="button" onclick= "downPress = true;rightPress = false;
 leftPress = false;
 upPress = false;
 ">Down</button>
-<button style="margin:30px; text-allign: middle;" type="button" onclick= "leftPress = true;rightPress = false;
-upPress = false;downPress = false;"> Left</button>
-  <button style="margin:30px; text-allign: middle;" type="button" onclick= "rightPress = true;
-leftPress = false;
-upPress = false;
-downPress = false;
-">Right</button>
 	
 <script>
 var canvas = document.getElementById("Snakeplane");
