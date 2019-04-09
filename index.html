@@ -329,7 +329,12 @@ if(score >= 20){
     alert("You lose. Your score was " + score + ".");
     reset();
   }	
-
+ if((y + size > projectileX && y < projectileX+pSize)&&(x + size > projectileystart && x < projectileystart+ pSize)){
+    wooooooaaaah.play();
+    alert("You lose. Your score was " + score + ".");
+    reset();
+  }	
+}
  	
 	
   if(score >= 20){
