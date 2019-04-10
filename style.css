@@ -1,19 +1,11 @@
-@media (min-width: 992px) {
-    .desktop-only {
-	display:block !important;
-    }
-    .mobile-only {
-        display:none !important;
-    }
-}
+#content-desktop {display: block;}
+#content-mobile {display: none;}
 
-@media (max-width: 991px) {
-    .mobile-only {
-	display:block !important;
-    }
-    .desktop-only {
-	dislay:none !important;
-    }
+@media screen and (max-width: 991px) {
+
+#content-desktop {display: none;}
+#content-mobile {display: block;}
+
 }
 .left{
   display: inline-block;width:25%;font-size: 60px;margin:15px;margin-left:5%;
