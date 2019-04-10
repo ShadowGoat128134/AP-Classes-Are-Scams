@@ -77,6 +77,7 @@ var dmove = false;
 var pdisabled = false;
 var sdisabled = false;
 var godmode = false;
+var deathcause = false;
 var red = 0;
 var green = 0;
 var blue = 255;
@@ -351,14 +352,24 @@ function draw(){
     if(sdisabled == false){
     wooooooaaaah.play();
     }
+    if(deathcause == false){
     alert("You lose. Your score was " + score + ".");
+    } 
+    else{
+    alert("top/bottom wall hit. Score = " + score);
+    } 
     reset();
   }
    if((y + size > canvas.height || y < 0)&&(godmode == false)){
     if(sdisabled == false){
     wooooooaaaah.play();
     }
+    if(deathcause == false){
     alert("You lose. Your score was " + score + ".");
+    } 
+    else{
+    alert("left/right wall hit. Score = " + score);
+    } 
     reset();
   }
 if(score >= 20 && pdisabled == false){ 
@@ -370,14 +381,24 @@ if(score >= 20 && pdisabled == false){
     if(sdisabled == false){
     wooooooaaaah.play();
     }
+    if(deathcause == false){
     alert("You lose. Your score was " + score + ".");
+    } 
+    else{
+    alert("left/right projectile hit. Score = " + score);
+    } 
     reset();
   }	
  if((y + size > projectileX && y < projectileX+pSize)&&(x + size > projectileystart && x < projectileystart+ pSize)&&(godmode == false)){
     if(sdisabled == false){
     wooooooaaaah.play();
     }
+    if(deathcause == false){
     alert("You lose. Your score was " + score + ".");
+    } 
+    else{
+    alert("top/bottom hit. Score = " + score);
+    } 
     reset();
   }	
 }
@@ -452,6 +473,7 @@ function debug(){
        pdisabled = prompt("Pdisable? (false/true)");
        sdisabled = prompt("Sdisable? (false/true)");
        godmode = prompt("Godmode? (false/true)");
+       deathcause = prompt("Deathcause? (false/true)");
    }
 }
 </script>
