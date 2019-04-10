@@ -76,6 +76,7 @@ var umove = false;
 var dmove = false;
 var pdisabled = false;
 var sdisabled = false;
+var godmode = false;
 var red = 0;
 var green = 0;
 var blue = 255;
@@ -346,14 +347,14 @@ function draw(){
     sX = 0;
     sY = 3+speed;
   }
-  if(x + size > canvas.width || x < 0){
+  if((x + size > canvas.width || x < 0)&&(godmode == false)){
     if(sdisabled == false){
     wooooooaaaah.play();
     }
     alert("You lose. Your score was " + score + ".");
     reset();
   }
-   if(y + size > canvas.height || y < 0){
+   if((y + size > canvas.height || y < 0)&&(godmode == false)){
     if(sdisabled == false){
     wooooooaaaah.play();
     }
@@ -365,14 +366,14 @@ if(score >= 20 && pdisabled == false){
    drawCProjectileX();
    drawIProjectileY();
    drawCProjectileY();  
-  if((y + size > projectilexstart && y < projectilexstart+ pSize) && (x + size > projectileY && x < projectileY+pSize)){
+  if((y + size > projectilexstart && y < projectilexstart+ pSize) && (x + size > projectileY && x < projectileY+pSize)&&(godmode == false)){
     if(sdisabled == false){
     wooooooaaaah.play();
     }
     alert("You lose. Your score was " + score + ".");
     reset();
   }	
- if((y + size > projectileX && y < projectileX+pSize)&&(x + size > projectileystart && x < projectileystart+ pSize)){
+ if((y + size > projectileX && y < projectileX+pSize)&&(x + size > projectileystart && x < projectileystart+ pSize)&&(godmode == false)){
     if(sdisabled == false){
     wooooooaaaah.play();
     }
@@ -450,6 +451,7 @@ function debug(){
        score = prompt("Score?");
        pdisabled = prompt("Pdisable? (false/true)");
        sdisabled = prompt("Sdisable? (false/true)");
+       godmode = prompt("Godmode? (false/true)");
    }
 }
 </script>
