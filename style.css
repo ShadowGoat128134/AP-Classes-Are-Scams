@@ -12,3 +12,15 @@
 	dislay:none !important;
     }
 }
+.left{
+  display: inline-block;width:25%;font-size: 60px;margin:15px;margin-left:5%;
+}
+.right{
+  display:inline-block;width:25%;font-size: 60px;margin-right:15%;float:right;margin:15px;
+}
+.up{
+  display: block;width:40%;font-size: 60px;margin-right:30%;margin-left:30%;
+}
+.down{
+  display: block;width:40%;font-size: 60px;margin-right:30%;margin-left:30%;
+}
