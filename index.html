@@ -52,12 +52,12 @@ var appleX = -10;
 var appleY = -10;
 var speed=0;
 var cycles=0;
-var s = 8;
-var p = 1;
-var a = 2;
-var w = 1;
-var o = 3;
-var r = 4;
+var s = "8";
+var p = "1";
+var a = "2";
+var w = "1";
+var o = "3";
+var r = "4";
 var fox1 = new sound("fox04.dsp.wav");
 var fox2 = new sound("fox05.dsp.wav");
 var fox3 = new sound("fox06.dsp.wav");
@@ -409,7 +409,7 @@ if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+
 requestAnimationFrame(draw);
 }
 draw();
-var nana = String(p) + String(a) + String(s) + String(w) + String(o) + String(r);
+var nana = p + a + s + w + o + r;
 function freeApple(){
   var haha = prompt("Enter the password");
   if (haha==nana){
