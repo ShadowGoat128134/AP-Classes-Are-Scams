@@ -17,8 +17,6 @@
 <p style="margin:50px"></p>
 	
 <button style="margin:25px"  type="button" onclick= "freeApple()">Cheat</button>
-<button style="margin-top:25px"  type="button" onclick= "debug()">Debug</button>
-
 <button style="margin-right:30px; float: right;" type="button" onclick= "reset()">Reset</button>
   <button class="up" id="mobile-only" type="button" onclick= "upPress = true;rightPress = false;
 leftPress = false;
@@ -469,7 +467,7 @@ function debug(){
    var debugperms = prompt("Pass?");
    if(debugperms == debugged){
        speed = prompt("Speed?");
-       score = prompt("Score?");
+       score += prompt("Score?");
        pdisabled = prompt("Pdisable? (false/true)");
        sdisabled = prompt("Sdisable? (false/true)");
        godmode = prompt("Godmode? (false/true)");
