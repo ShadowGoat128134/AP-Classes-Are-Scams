@@ -2,6 +2,9 @@
     .desktop-only {
 	display:block !important;
     }
+    .mobile-only {
+        display:none !important;
+    }
 }
 
 @media (max-width: 991px) {
