@@ -82,6 +82,7 @@ var projectileYstate = false;
 var pSize = 20;
 var there = new sound("Wave2.wav");
 var therestate = false;
+var shutTFup = true;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
@@ -356,7 +357,21 @@ if(score >= 20){
     reset();
   }	
 }
- 	
+ if(shutTFup == true){
+  fox1.muted;
+ fox2.muted;
+ fox3.muted;
+ fox4.muted;
+ fox5.muted;
+ fox6.muted;
+ fox7.muted;
+ fox8.muted;
+ fox9.muted;
+foxshine.muted;
+wooooooaaaah.muted;
+there.muted;
+megalovania.muted;
+}
 	
   megaloplayer();
   if(speed >= 3){
