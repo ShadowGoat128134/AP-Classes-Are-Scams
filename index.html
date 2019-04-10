@@ -20,23 +20,21 @@
 
 
 <button style="margin-right:30px; float: right;" type="button" onclick= "reset()">Reset</button>
-<div class="mobile-only">
-  <button class="up" type="button" onclick= "upPress = true;rightPress = false;
+  <button class="up mobile-only" type="button" onclick= "upPress = true;rightPress = false;
 leftPress = false;
 downPress = false;
 ">Up</button>
-  <button class="left" type="button" onclick= "leftPress = true;rightPress = false;
+  <button class="left mobile-only" type="button" onclick= "leftPress = true;rightPress = false;
 upPress = false;downPress = false;"> Left</button>
 	
-  <button class="right" type="button" onclick= "rightPress = true;
+  <button class="right mobile-only" type="button" onclick= "rightPress = true;
 leftPress = false;upPress = false;
 downPress = false;">Right</button>
 	
-   <button class="down" type="button" onclick= "downPress = true; rightPress = false;
+   <button class="down mobile-only" type="button" onclick= "downPress = true; rightPress = false;
 leftPress = false;
 upPress = false;
-">Down</button>
-</div>	
+">Down</button>	
 <script>
 var canvas = document.getElementById("Snakeplane");
 var ctx = canvas.getContext("2d");
