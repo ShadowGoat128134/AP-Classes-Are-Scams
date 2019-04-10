@@ -7,7 +7,6 @@
 @media (max-width: 991px) {
     .mobile-only {
 	display:block !important;
-	background-color: lightblue;
     }
     .desktop-only {
 	dislay:none !important;
