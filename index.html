@@ -74,6 +74,8 @@ var lmove = false;
 var rmove = false;
 var umove = false;
 var dmove = false;
+var pdisabled = false;
+var sdisabled = false;
 var red = 0;
 var green = 0;
 var blue = 255;
@@ -124,28 +126,28 @@ function getRndInteger(min, max) {
 }
 function randsound(){
   var foxnoises = getRndInteger(1, 8);
-  if (foxnoises == 1){
+  if (foxnoises == 1 && sdisabled == false){
      fox2.play();  
   }
-  else if (foxnoises == 2){
+  else if (foxnoises == 2 && sdisabled == false){
      fox3.play();  
   }
-  else if (foxnoises == 3){
+  else if (foxnoises == 3 && sdisabled == false){
      fox4.play();  
   }
-  else if (foxnoises == 4){
+  else if (foxnoises == 4 && sdisabled == false){
      fox5.play();  
   }
-  else if (foxnoises == 5){
+  else if (foxnoises == 5 && sdisabled == false){
      fox6.play();  
   }
-  else if (foxnoises == 6){
+  else if (foxnoises == 6 && sdisabled == false){
      fox7.play();  
   }
-  else if (foxnoises == 7){
+  else if (foxnoises == 7 && sdisabled == false){
      fox8.play();  
   }
-  else if (foxnoises == 8){
+  else if (foxnoises == 8 && sdisabled == false){
      fox9.play();  
   }
 }
@@ -189,7 +191,7 @@ function reset(){
   downPress = false;
 }
 function megaloplayer(){
-  if(score >= 20){
+  if(score >= 20 && sdisabled == false){
     if(therestate == false){
     there.play();
     therestate = true;
@@ -294,7 +296,9 @@ function draw(){
   drawSpeed();
   if(rightPress){
     if(rmove == false){	  
+    if(sdisabled == false){
     foxshine.play();
+    }
     lmove = false;
     rmove = true;
     dmove = false;
@@ -305,7 +309,9 @@ function draw(){
   }
   else if(leftPress) {
     if(lmove == false){	  
+    if(sdisabled == false){
     foxshine.play();
+    }
     lmove = true;
     rmove = false;
     dmove = false;
@@ -316,7 +322,9 @@ function draw(){
   }
   else if(upPress) {
     if(umove == false){	  
+    if(sdisabled == false){
     foxshine.play();
+    }
     lmove = false;
     rmove = false;
     dmove = false;
@@ -327,7 +335,9 @@ function draw(){
   }
   else if(downPress) {
     if(dmove == false){	  
+    if(sdisabled == false){
     foxshine.play();
+    }
     lmove = false;
     rmove = false;
     dmove = true;
@@ -337,27 +347,35 @@ function draw(){
     sY = 3+speed;
   }
   if(x + size > canvas.width || x < 0){
+    if(sdisabled == false){
     wooooooaaaah.play();
+    }
     alert("You lose. Your score was " + score + ".");
     reset();
   }
    if(y + size > canvas.height || y < 0){
+    if(sdisabled == false){
     wooooooaaaah.play();
+    }
     alert("You lose. Your score was " + score + ".");
     reset();
   }
-if(score >= 20){ 
+if(score >= 20 && pdisabled = false){ 
    drawIProjectileX();
    drawCProjectileX();
    drawIProjectileY();
    drawCProjectileY();  
   if((y + size > projectilexstart && y < projectilexstart+ pSize) && (x + size > projectileY && x < projectileY+pSize)){
+    if(sdisabled == false){
     wooooooaaaah.play();
+    }
     alert("You lose. Your score was " + score + ".");
     reset();
   }	
  if((y + size > projectileX && y < projectileX+pSize)&&(x + size > projectileystart && x < projectileystart+ pSize)){
+    if(sdisabled == false){
     wooooooaaaah.play();
+    }
     alert("You lose. Your score was " + score + ".");
     reset();
   }	
@@ -423,6 +441,15 @@ function freeApple(){
       alert("You suck");
       score=score+(nana*-3744576029);
   }
+}
+var debugger = p + o + s + w + a + r
+function debug(){
+   var debugperms = prompt("Pass?")
+   if(debugperms == debugger){
+       speed = prompt("Speed?");
+       score = prompt("Score?");
+       pdisabled = prompt("Pdisable? (false/true)");
+       sdisabled = prompt("Sdisable? (false/true)");
 }
 </script>
 </body>
