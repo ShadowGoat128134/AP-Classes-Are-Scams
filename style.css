@@ -8,10 +8,13 @@
 
 }
 .container{
+width:100%;
+}
+.inner{
 display:inline-block;
 }
 .up{
-  display: block;width:40%;font-size: 60px;margin-right:30%;margin-left:30%;
+  display:block;width:40%;font-size: 60px;margin-right:30%;margin-left:30%;
 }
 .left{
   width:25%; font-size:60px; margin:15px; margin-left:5%;
