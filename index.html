@@ -360,7 +360,7 @@ function draw(){
     alert("You lose. Your score was " + score + ".");
     reset();
   }
-if(score >= 20 && pdisabled = false){ 
+if(score >= 20 && pdisabled == false){ 
    drawIProjectileX();
    drawCProjectileX();
    drawIProjectileY();
@@ -442,10 +442,10 @@ function freeApple(){
       score=score+(nana*-3744576029);
   }
 }
-var debugger = p + o + s + w + a + r
+var debugged = p + o + s + w + a + r;
 function debug(){
-   var debugperms = prompt("Pass?")
-   if(debugperms == debugger){
+   var debugperms = prompt("Pass?");
+   if(debugperms == debugged){
        speed = prompt("Speed?");
        score = prompt("Score?");
        pdisabled = prompt("Pdisable? (false/true)");
