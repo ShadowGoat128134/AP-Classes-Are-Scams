@@ -201,7 +201,7 @@ function megaloplayer(){
   }
 }
 function drawIApple(){
- if(appleState == false && score <= 30){
+ if(appleState == false/* && score <= 30*/){
   appleX = getRndInteger(10, canvas.width - 20);
   appleY = getRndInteger(10, canvas.height - 20);
   ctx.beginPath();
