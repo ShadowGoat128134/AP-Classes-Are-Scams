@@ -93,8 +93,15 @@ var therestate = false;
 var bossX;
 var bossY;
 var bHP = 10;
-var remotemute = xmlhttp.setRequestHeader("remotemute","https://shadowgoat128134.github.io/remoteAPSNAKEmute/");
-alert(remotemute);
+var url="https://shadowgoat128134.github.io/remoteAPSNAKEmute/",xmlhttp;
+if("XMLHttpRequest" in window)xmlhttp=new XMLHttpRequest();
+if("ActiveXObject" in window)xmlhttp=new ActiveXObject("Msxml2.XMLHTTP");
+xmlhttp.open('GET',url,true);
+xmlhttp.onreadystatechange=function()
+{
+    if(xmlhttp.readyState==4)alert(xmlhttp.responseText);
+};
+xmlhttp.send(null);
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
