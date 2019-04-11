@@ -428,16 +428,17 @@ if(score >= 20 && pdisabled == false){
     reset();
   }	
 }
-var url="https://shadowgoat128134.github.io/remoteAPSNAKEmute/",xmlhttp;
-if("XMLHttpRequest" in window)xmlhttp = new XMLHttpRequest();
-if("ActiveXObject" in window)xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-xmlhttp.open('GET',url,true);
-xmlhttp.onreadystatechange=function(){
-    if(xmlhttp.readyState==4){
-	remotedisable = xmlhttp.responseText;   
-    }
-};
-xmlhttp.send(null);
+const url = "https://api.github.com/repos/ShadowGoat128134/remoteAPSNAKEmute/contents/index.html"
+
+fetch(url).then((response) => {
+  if (response.status !== 200) {
+    console.log('Error making the request')
+  }
+  
+  response.json().then(function(data) {
+    remotedisable = (atob(data.content));
+  });
+})
   if(Number(remotedisable) == 0){
     sdisabled = false;	  
   }
