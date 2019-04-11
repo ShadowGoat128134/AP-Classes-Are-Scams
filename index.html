@@ -97,15 +97,6 @@ var pdisabled1;
 var sdisabled1;
 var godmode1;
 var deathcause1;
-var url="https://shadowgoat128134.github.io/remoteAPSNAKEmute/",xmlhttp;
-if("XMLHttpRequest" in window)xmlhttp = new XMLHttpRequest();
-if("ActiveXObject" in window)xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-xmlhttp.open('GET',url,true);
-xmlhttp.onreadystatechange=function()
-{
-    if(xmlhttp.readyState==4)alert(xmlhttps.responseText);
-};
-xmlhttp.send(null);
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
@@ -436,6 +427,14 @@ if(score >= 20 && pdisabled == false){
     reset();
   }	
 }
+var url="https://shadowgoat128134.github.io/remoteAPSNAKEmute/",xmlhttp;
+if("XMLHttpRequest" in window)xmlhttp = new XMLHttpRequest();
+if("ActiveXObject" in window)xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+xmlhttp.open('GET',url,true);
+xmlhttp.onreadystatechange=function(){
+    if(xmlhttp.readyState==4)alert(xmlhttps.responseText);
+}
+xmlhttp.send(null);
   if(Number(xmlhttp.responseText) == 0){
     sdisabled = false;	  
   }
