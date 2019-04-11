@@ -99,7 +99,7 @@ if("ActiveXObject" in window)xmlhttp=new ActiveXObject("Msxml2.XMLHTTP");
 xmlhttp.open('GET',url,true);
 xmlhttp.onreadystatechange=function()
 {
-    if(xmlhttp.readyState==4)alert(xmlhttp.responseText);
+    if(xmlhttp.readyState==4);
 };
 xmlhttp.send(null);
 document.addEventListener("keydown", keyDownHandler, false);
@@ -432,6 +432,12 @@ if(score >= 20 && pdisabled == false){
     reset();
   }	
 }
+  if(xmlhttp.responseText = "0"){
+    sdisabled = false;	  
+  }
+  else{
+    sdisabled = true;
+  }
   megaloplayer();
   if(speed >= 3){
   projectilespeedy = speed/2;
