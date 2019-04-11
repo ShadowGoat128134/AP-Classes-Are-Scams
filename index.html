@@ -208,12 +208,12 @@ function drawIApple(){
  ctx.fillStyle = 'red';
  ctx.strokestyle = 'darkred';
  ctx.fillRect(appleX, appleY, 10, 10);
- ctx.strokeRect(appleX, appleY, 10, 10);//what happens if i change the 3rd and 4th values for rect 
+ ctx.strokeRect(appleX, appleY, 10, 10);
   appleState = true;
  }
 }
 function drawCApple(){
-if (appleState == true){
+if (appleState == true/* && score <= 30*/){
  ctx.fillStyle = 'red';
  ctx.strokestyle = 'darkred';
  ctx.fillRect(appleX, appleY, 10, 10);
