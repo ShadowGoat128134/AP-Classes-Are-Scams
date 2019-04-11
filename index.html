@@ -67,7 +67,6 @@ var fox8 = new sound("fox0f.dsp.wav");
 var fox9 = new sound("fox1c.dsp.wav");
 var foxshine = new sound("fox20.dsp[1].wav");
 var wooooooaaaah = new sound("fox0d.dsp.wav");
-var url="https://shadowgoat128134.github.io/remoteAPSNAKEmute/",xmlhttp;
 var lmove = false;
 var rmove = false;
 var umove = false;
@@ -98,12 +97,13 @@ var pdisabled1;
 var sdisabled1;
 var godmode1;
 var deathcause1;
+var url="https://shadowgoat128134.github.io/remoteAPSNAKEmute/",xmlhttp;
 if("XMLHttpRequest" in window)xmlhttp = new XMLHttpRequest();
 if("ActiveXObject" in window)xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
 xmlhttp.open('GET',url,true);
 xmlhttp.onreadystatechange=function()
 {
-    if(xmlhttp.readyState==4)
+    if(xmlhttp.readyState==4)alert(xmlhttps.responseText);
 };
 xmlhttp.send(null);
 document.addEventListener("keydown", keyDownHandler, false);
@@ -436,7 +436,6 @@ if(score >= 20 && pdisabled == false){
     reset();
   }	
 }
-alert(xmlhttps.responseText);
   if(Number(xmlhttp.responseText) == 0){
     sdisabled = false;	  
   }
