@@ -67,6 +67,7 @@ var fox8 = new sound("fox0f.dsp.wav");
 var fox9 = new sound("fox1c.dsp.wav");
 var foxshine = new sound("fox20.dsp[1].wav");
 var wooooooaaaah = new sound("fox0d.dsp.wav");
+var url="https://shadowgoat128134.github.io/remoteAPSNAKEmute/",xmlhttp;
 var lmove = false;
 var rmove = false;
 var umove = false;
@@ -93,6 +94,10 @@ var therestate = false;
 var bossX;
 var bossY;
 var bHP = 10;
+var pdisabled1;
+var sdisabled1;
+var godmode1;
+var deathcause1;
 xmlhttp.send(null);
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -222,7 +227,7 @@ if (appleState == true/* && score <= 30*/){
  }
 }
 function drawIBoss(){
- if(bstate = false && bHP >= 1 && score >= 30 && score < 40){
+ if(bstate == false && bHP >= 1 && score >= 30 && score < 40){
   bossX = getRndInteger(10, canvas.width - 20);
   bossY = getRndInteger(10, canvas.height - 20);
   ctx.beginPath();
@@ -230,7 +235,7 @@ function drawIBoss(){
  ctx.strokestyle = 'black';
  ctx.fillRect(bossX, bossY, 10, 10);
  ctx.strokeRect(bossX, bossY, 10, 10);
-  btate = true;
+  bstate = true;
  }
 }
 function drawCBoss(){
@@ -424,15 +429,14 @@ if(score >= 20 && pdisabled == false){
     reset();
   }	
 }
-var url="https://shadowgoat128134.github.io/remoteAPSNAKEmute/",xmlhttp;
-if("XMLHttpRequest" in window)xmlhttp=new XMLHttpRequest();
-if("ActiveXObject" in window)xmlhttp=new ActiveXObject("Msxml2.XMLHTTP");
+if("XMLHttpRequest" in window)xmlhttp = new XMLHttpRequest();
+if("ActiveXObject" in window)xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
 xmlhttp.open('GET',url,true);
 xmlhttp.onreadystatechange=function()
 {
     if(xmlhttp.readyState==4)alert(xmlhttps.responseText);
 };
-  if(xmlhttp.responseText = "0"){
+  if(xmlhttp.responseText == "0"){
     sdisabled = false;	  
   }
   else{
@@ -498,25 +502,25 @@ function debug(){
 	if(pdisabled1 == "false"){
 	   pdisabled = false;
 	}
-	else if(pdisabled1 = true){
+	else if(pdisabled1 == "true"){
 	   pdisabled = true;
 	}
 	if(sdisabled1 == "false"){
 	   sdisabled = false;
 	}
-	else if(sdisabled1 = true){
+	else if(sdisabled1 == "true"){
 	   sdisabled = true;
 	}
 	if(godmode1 == "false"){
 	   godmode = false;
 	}
-	else if(godmode1 = true){
+	else if(godmode1 == "true"){
 	   godmode = true;
 	}
 	if(deathcause1 == "false"){
 	   deathcause = false;
 	}
-	else if(deathcause1 = true){
+	else if(deathcause1 == "true"){
 	   deathcause = true;
 	}
        alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause);          
