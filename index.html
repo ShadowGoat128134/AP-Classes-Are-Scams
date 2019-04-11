@@ -97,6 +97,7 @@ var pdisabled1;
 var sdisabled1;
 var godmode1;
 var deathcause1;
+var remotedisable;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
@@ -432,10 +433,11 @@ if("XMLHttpRequest" in window)xmlhttp = new XMLHttpRequest();
 if("ActiveXObject" in window)xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
 xmlhttp.open('GET',url,true);
 xmlhttp.onreadystatechange=function(){
-    if(xmlhttp.readyState==4)
+    if(xmlhttp.readyState==4){
+	remotedisable = xmlhttp.responseText;   
 }
 xmlhttp.send(null);
-  if(Number(xmlhttp.responseText) == 0){
+  if(Number(remotedisable) == 0){
     sdisabled = false;	  
   }
   else{
