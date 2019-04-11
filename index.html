@@ -435,7 +435,8 @@ xmlhttp.open('GET',url,true);
 xmlhttp.onreadystatechange=function(){
     if(xmlhttp.readyState==4){
 	remotedisable = xmlhttp.responseText;   
-}
+    }
+};
 xmlhttp.send(null);
   if(Number(remotedisable) == 0){
     sdisabled = false;	  
