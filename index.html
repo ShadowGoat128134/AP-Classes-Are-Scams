@@ -432,7 +432,7 @@ if("XMLHttpRequest" in window)xmlhttp = new XMLHttpRequest();
 if("ActiveXObject" in window)xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
 xmlhttp.open('GET',url,true);
 xmlhttp.onreadystatechange=function(){
-    if(xmlhttp.readyState==4)alert(xmlhttps.responseText);
+    if(xmlhttp.readyState==4)alert(xmlhttp.responseText);
 }
 xmlhttp.send(null);
   if(Number(xmlhttp.responseText) == 0){
