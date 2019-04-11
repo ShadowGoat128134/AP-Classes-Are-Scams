@@ -16,7 +16,6 @@
 
 <p style="margin:50px"></p>
 	
-<button style="margin:25px"  type="button" onclick= "freeApple()">Cheat</button>
 <button style="margin-top:25px"  type="button" onclick= "debug()">Debug</button>
 <button style="margin-right:30px; float: right;" type="button" onclick= "reset()">Reset</button>
   <button class="up" id="mobile-only" type="button" onclick= "upPress = true;rightPress = false;
@@ -52,9 +51,7 @@ var appleX = -10;
 var appleY = -10;
 var speed=0;
 var cycles=0;
-var s = "8";
 var p = "1";
-var a = "2";
 var w = "1";
 var o = "3";
 var r = "4";
@@ -168,7 +165,6 @@ function sound(src) {
 }
 function reset(){
   score = 0;
-  nana = 128;
   x = canvas.width/2;
   y = canvas.height/2;
   sX = 0;
@@ -258,6 +254,7 @@ if (score >= 20&&projectileYstate == false){
  ctx.strokeRect(0, projectileX, pSize, pSize);
  }
 }
+var s = "8";
 function drawCProjectileY(){
  if(projectileYstate == true){
  ctx.fillStyle = 'white';
@@ -279,6 +276,7 @@ function randColor(){
      rColor= "#06f";
 }
 }
+var a = "2";
 randColor();
 function drawSnakeHead(){
   ctx.beginPath();
@@ -448,21 +446,6 @@ if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+
 requestAnimationFrame(draw);
 }
 draw();
-var nana = p + a + s + w + o + r;
-function freeApple(){
-  var haha = prompt("Enter the password");
-  if (haha==nana){
-      fox1.play();
-      appleState=false;
-      alert("You got a free apple!");
-      score=score+(nana*3744576029);
-      speed++;
-      randColor();
-  }else{
-      alert("You suck");
-      score=score+(nana*-3744576029);
-  }
-}
 var debugged = p + o + s + w + a + r;
 function debug(){
    var debugperms = prompt("Pass?");
