@@ -51,6 +51,7 @@ var appleX = -10;
 var appleY = -10;
 var speed=0;
 var cycles=0;
+var bstate = false;
 var p = "1";
 var w = "1";
 var o = "3";
@@ -89,6 +90,9 @@ var projectileYstate = false;
 var pSize = 20;
 var there = new sound("Wave2.wav");
 var therestate = false;
+var bossX;
+var bossY;
+var bHP = 10;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
@@ -197,7 +201,7 @@ function megaloplayer(){
   }
 }
 function drawIApple(){
- if(appleState == false){
+ if(appleState == false && score <= 30){
   appleX = getRndInteger(10, canvas.width - 20);
   appleY = getRndInteger(10, canvas.height - 20);
   ctx.beginPath();
@@ -214,6 +218,26 @@ if (appleState == true){
  ctx.strokestyle = 'darkred';
  ctx.fillRect(appleX, appleY, 10, 10);
  ctx.strokeRect(appleX, appleY, 10, 10);
+ }
+}
+function drawIBoss(){
+ if(bstate = false && bHP >= 1 && score >= 30 && score < 40){
+  bossX = getRndInteger(10, canvas.width - 20);
+  bossY = getRndInteger(10, canvas.height - 20);
+  ctx.beginPath();
+ ctx.fillStyle = 'black';
+ ctx.strokestyle = 'black';
+ ctx.fillRect(bossX, bossY, 10, 10);
+ ctx.strokeRect(bossX, bossY, 10, 10);
+  btate = true;
+ }
+}
+function drawCBoss(){
+if (bstate == true){
+ ctx.fillStyle = 'black';
+ ctx.strokestyle = 'black';
+ ctx.fillRect(bossX, bossY, 10, 10);
+ ctx.strokeRect(bossX, bossY, 10, 10);
  }
 }
 function drawScore() {
