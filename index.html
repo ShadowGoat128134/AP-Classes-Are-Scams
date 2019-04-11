@@ -113,7 +113,10 @@ function keyDownHandler(e) {
     else if(e.key == "Down" || e.key == "ArrowDown"){
 	downPress = true;
     }
-}
+    else if(e.key == "Space"){
+	gunshot = true;
+    }
+} 
 function keyUpHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
         rightPress = false;
@@ -126,6 +129,9 @@ function keyUpHandler(e) {
     }
     else if(e.key == "Down" || e.key == "ArrowDown"){
 	downPress = false;
+    }
+    else if(e.key == "Space"){
+	gunshot = false;
     }
 }
 function getRndInteger(min, max) {
@@ -243,6 +249,22 @@ if (bstate == true){
  ctx.strokestyle = 'black';
  ctx.fillRect(bossX, bossY, 10, 10);
  ctx.strokeRect(bossX, bossY, 10, 10);
+ }
+}
+function playerShot(sX, sY, x, y){
+ if(gunshot == true){
+ var now = new Date().getTime();
+ var lasttime = 0;
+    if (now - lasttime < 1000) {
+        return;
+    } else {
+        lastTime = now;
+ ctx.fillStyle = 'yellow';
+ ctx.strokestyle = 'yellow';
+ ctx.fillRect(x+1, y+1, 3, 3);
+ ctx.strokeRect(x+1, y+1, 3, 3);    
+    }
+
  }
 }
 function drawScore() {
