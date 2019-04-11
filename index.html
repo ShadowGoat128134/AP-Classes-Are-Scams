@@ -466,12 +466,37 @@ function freeApple(){
 var debugged = p + o + s + w + a + r;
 function debug(){
    var debugperms = prompt("Pass?");
-   if(debugperms == debugged){udasdsa("Speed?");
+   if(debugperms == debugged){
+       speed = Number(prompt("Speed?"));
        score += Number(prompt("Score?"));
        pdisabled1 = prompt("Pdisable? (false/true)");
        sdisabled1 = prompt("Sdisable? (false/true)");
        godmode1 = prompt("Godmode? (false/true)");
-       deathcause1 = prompt("Deathcause? (false/true)");    
+       deathcause1 = prompt("Deathcause? (false/true)");
+	if(pdisabled1 == "false"){
+	   pdisabled = false;
+	}
+	else if(pdisabled1 = true){
+	   pdisabled = true;
+	}
+	if(sdisabled1 == "false"){
+	   sdisabled = false;
+	}
+	else if(sdisabled1 = true){
+	   sdisabled = true;
+	}
+	if(godmode1 == "false"){
+	   godmode = false;
+	}
+	else if(godmode1 = true){
+	   godmode = true;
+	}
+	if(deathcause1 == "false"){
+	   deathcause = false;
+	}
+	else if(deathcause1 = true){
+	   deathcause = true;
+	}
        alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause);          
    }
 }
