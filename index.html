@@ -34,7 +34,6 @@ downPress = false;">Right</button></div>
 leftPress = false;
 upPress = false;">Down</button>	
 <script>
-
 var canvas = document.getElementById("Snakeplane");
 var ctx = canvas.getContext("2d");
 var x = canvas.width/2;
@@ -46,6 +45,7 @@ var rightPress = false;
 var leftPress = false;
 var upPress = false;
 var downPress = false;
+var gunshot = false;
 var size = 13;
 var appleState = false;
 var appleX = -10;
@@ -82,6 +82,8 @@ var blue = 255;
 var bulletSize = 3;
 var bulletX;
 var bulletY;
+var bulletsX;
+var bulletsY;
 var bulletActive = false;
 var megalovania = new sound("megalovania.mp3");
 var projectilespeedx = 0;
@@ -104,6 +106,7 @@ var sdisabled1;
 var godmode1;
 var deathcause1;
 var remotedisable;
+var rControl1;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
@@ -259,16 +262,15 @@ if (bstate == true){
 }
 function playerIShot(){
  if(gunshot == true && bulletActive == false){
-        lastTime = now;
 	 bulletX = x+1;
  	bulletY = y+1;
 	 ctx.fillStyle = 'yellow';
 	 ctx.strokestyle = 'yellow';
 	 ctx.fillRect(bulletX, bulletY, bulletSize, bulletSize);
  	ctx.strokeRect(bulletY, bulletX, bulletSize, bulletSize);
-        var bulletsX = Number(sX);
-	var bulletsY = Number(sY);
-	bulletActive == true;
+  bulletsX = Number(sX);
+	bulletsY = Number(sY);
+	bulletActive = true;
   }
 }
 function playerCShot(){
@@ -454,9 +456,7 @@ function draw(){
   }
 if(score >= 20 && pdisabled == false){ 
    drawIProjectileX();
-   drawCProjectileX();
-   drawIProjectileY();
-   drawCProjectileY();  
+   drawCProjectileX();  
   if((y + size > projectilexstart && y < projectilexstart+ pSize) && (x + size > projectileY && x < projectileY+pSize)&&(godmode == false)){
     if(sdisabled == false){
     wooooooaaaah.play();
