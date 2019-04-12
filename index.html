@@ -370,8 +370,6 @@ function draw(){
   drawSnakeHead();
   drawScore();
   drawSpeed();
-  playerIShot();
-  playerCShot();
   if(rightPress){
     if(rmove == false){	  
     if(sdisabled == false){
@@ -456,7 +454,9 @@ function draw(){
   }
 if(score >= 20 && pdisabled == false){ 
    drawIProjectileX();
-   drawCProjectileX();  
+   drawCProjectileX(); 
+   drawIProjectileY();
+   drawCProjectileY(); 
   if((y + size > projectilexstart && y < projectilexstart+ pSize) && (x + size > projectileY && x < projectileY+pSize)&&(godmode == false)){
     if(sdisabled == false){
     wooooooaaaah.play();
