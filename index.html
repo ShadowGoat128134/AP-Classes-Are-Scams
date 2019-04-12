@@ -57,6 +57,7 @@ var p = "1";
 var w = "1";
 var o = "3";
 var r = "4";
+const url = "https://api.github.com/repos/ShadowGoat128134/remoteAPSNAKEmute/contents/index.html";
 var fox1 = new sound("fox04.dsp.wav");
 var fox2 = new sound("fox05.dsp.wav");
 var fox3 = new sound("fox06.dsp.wav");
@@ -339,6 +340,17 @@ function drawCProjectileY(){
  ctx.strokeRect(projectileystart, projectileX, pSize, pSize);
  }
 }
+function mutesound(){
+fetch(url).then((response) => {
+  if (response.status !== 200) {
+    console.log('Error making the request');
+  }
+  
+  response.json().then(function(data) {
+    remotedisable = (atob(data.content));
+  });
+});
+}
 var rColor ="#05f439";
 function randColor(){
   var cColor = getRndInteger(1, 4);
@@ -481,16 +493,7 @@ if(score >= 20 && pdisabled == false){
     reset();
   }	
 }
-const url = "https://api.github.com/repos/ShadowGoat128134/remoteAPSNAKEmute/contents/index.html";
-fetch(url).then((response) => {
-  if (response.status !== 200) {
-    console.log('Error making the request');
-  }
-  
-  response.json().then(function(data) {
-    remotedisable = (atob(data.content));
-  });
-});
+  setInterval(mutesound(),1000); 
   if(Number(remotedisable) == 0){
     sdisabled = false;	  
   }
