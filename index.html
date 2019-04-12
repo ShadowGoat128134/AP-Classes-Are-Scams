@@ -34,6 +34,7 @@ downPress = false;">Right</button></div>
 leftPress = false;
 upPress = false;">Down</button>	
 <script>
+
 var canvas = document.getElementById("Snakeplane");
 var ctx = canvas.getContext("2d");
 var x = canvas.width/2;
@@ -78,6 +79,9 @@ var deathcause = false;
 var red = 0;
 var green = 0;
 var blue = 255;
+var bulletSize = 3;
+var bulletX;
+var bulletY;
 var megalovania = new sound("megalovania.mp3");
 var projectilespeedx = 0;
 var projectilespeedy = 0;
@@ -251,7 +255,7 @@ if (bstate == true){
  ctx.strokeRect(bossX, bossY, 10, 10);
  }
 }
-function playerShot(sX, sY, x, y){
+function playerShot(){
  if(gunshot == true){
  var now = new Date().getTime();
  var lasttime = 0;
@@ -259,13 +263,36 @@ function playerShot(sX, sY, x, y){
         return;
     } else {
         lastTime = now;
- ctx.fillStyle = 'yellow';
- ctx.strokestyle = 'yellow';
- ctx.fillRect(x+1, y+1, 3, 3);
- ctx.strokeRect(x+1, y+1, 3, 3);    
+	 bulletX = x+1;
+ 	bulletY = y+1;
+	 ctx.fillStyle = 'yellow';
+	 ctx.strokestyle = 'yellow';
+	 ctx.fillRect(bulletX, bulletY, bulletSize, bulletSize);
+ 	ctx.strokeRect(bulletY, bulletX, bulletSize, bulletSize);
+        var bulletsX = Number(sX);
+	var bulletsY = Number(sY);
+    if(bulletsX == 3){
+	while(bulletX < canvas.width){
+	   bulletX += bulletsX * 4;
+	}
     }
-
+    else if(bulletsX == -3){
+	while(bulletX > 0){
+	   bulletX -= bulletsX * 4;
+	}
+    }
+    else if(bulletsY == -3){
+	while(bulletY > 0){
+	   bulletY -= bulletsY * 4;
+	}
+    }
+    else if(bulletsY == 3){
+	while(bulletY < canvas.height){
+	   bulletY += bulletsY * 4;
+	}
+    }
  }
+}
 }
 function drawScore() {
   ctx.font = "16px Arial";
@@ -344,6 +371,7 @@ function draw(){
   drawSnakeHead();
   drawScore();
   drawSpeed();
+  playerShot();
   if(rightPress){
     if(rmove == false){	  
     if(sdisabled == false){
@@ -450,17 +478,17 @@ if(score >= 20 && pdisabled == false){
     reset();
   }	
 }
-const url = "https://api.github.com/repos/ShadowGoat128134/remoteAPSNAKEmute/contents/index.html"
+const url = "https://api.github.com/repos/ShadowGoat128134/remoteAPSNAKEmute/contents/index.html";
 
 fetch(url).then((response) => {
   if (response.status !== 200) {
-    console.log('Error making the request')
+    console.log('Error making the request');
   }
   
   response.json().then(function(data) {
     remotedisable = (atob(data.content));
   });
-})
+});
   if(Number(remotedisable) == 0){
     sdisabled = false;	  
   }
