@@ -106,7 +106,6 @@ var sdisabled1;
 var godmode1;
 var deathcause1;
 var remotedisable;
-var rControl1;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
@@ -483,7 +482,6 @@ if(score >= 20 && pdisabled == false){
   }	
 }
 const url = "https://api.github.com/repos/ShadowGoat128134/remoteAPSNAKEmute/contents/index.html";
-if(rControl == true){
 fetch(url).then((response) => {
   if (response.status !== 200) {
     console.log('Error making the request');
@@ -499,7 +497,6 @@ fetch(url).then((response) => {
   else{
     sdisabled = true;
   }
-}
   megaloplayer();
   if(speed >= 3){
   projectilespeedy = speed/2;
@@ -557,7 +554,6 @@ function debug(){
        sdisabled1 = prompt("Sdisable? (false/true)");
        godmode1 = prompt("Godmode? (false/true)");
        deathcause1 = prompt("Deathcause? (false/true)");
-       rControl1 = prompt("rControl? (false/true)");
 	if(pdisabled1 == "false"){
 	   pdisabled = false;
 	}
@@ -581,12 +577,6 @@ function debug(){
 	}
 	else if(deathcause1 == "true"){
 	   deathcause = true;
-	}
-	if(rControl1 == "false"){
-	   rControl = false;
-	}
-	else if(rControl1 == "true"){
-	   rControl = true;
 	}
        alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause + " rControl = " + rControl);          
    }
