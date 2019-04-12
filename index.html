@@ -493,13 +493,13 @@ fetch(url).then((response) => {
     remotedisable = (atob(data.content));
   });
 });
-}
   if(Number(remotedisable) == 0){
     sdisabled = false;	  
   }
   else{
     sdisabled = true;
   }
+}
   megaloplayer();
   if(speed >= 3){
   projectilespeedy = speed/2;
