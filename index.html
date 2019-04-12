@@ -82,6 +82,7 @@ var blue = 255;
 var bulletSize = 3;
 var bulletX;
 var bulletY;
+var bulletActive = false;
 var megalovania = new sound("megalovania.mp3");
 var projectilespeedx = 0;
 var projectilespeedy = 0;
@@ -92,6 +93,7 @@ var projectileY;
 var projectileXstate = false;
 var projectileYstate = false;
 var pSize = 20;
+var rControl = true;
 var there = new sound("Wave2.wav");
 var therestate = false;
 var bossX;
@@ -255,13 +257,8 @@ if (bstate == true){
  ctx.strokeRect(bossX, bossY, 10, 10);
  }
 }
-function playerShot(){
- if(gunshot == true){
- var now = new Date().getTime();
- var lasttime = 0;
-    if (now - lasttime < 1000) {
-        return;
-    } else {
+function playerIShot(){
+ if(gunshot == true && bulletActive == false){
         lastTime = now;
 	 bulletX = x+1;
  	bulletY = y+1;
@@ -271,28 +268,28 @@ function playerShot(){
  	ctx.strokeRect(bulletY, bulletX, bulletSize, bulletSize);
         var bulletsX = Number(sX);
 	var bulletsY = Number(sY);
+	bulletActive == true;
+  }
+}
+function playerCShot(){
+   if(bulletActive == true){
+	 ctx.fillStyle = 'yellow';
+	 ctx.strokestyle = 'yellow';
+	 ctx.fillRect(bulletX, bulletY, bulletSize, bulletSize);
+ 	ctx.strokeRect(bulletY, bulletX, bulletSize, bulletSize);
     if(bulletsX == 3){
-	while(bulletX < canvas.width){
 	   bulletX += bulletsX * 4;
-	}
     }
     else if(bulletsX == -3){
-	while(bulletX > 0){
 	   bulletX -= bulletsX * 4;
-	}
     }
     else if(bulletsY == -3){
-	while(bulletY > 0){
 	   bulletY -= bulletsY * 4;
-	}
     }
     else if(bulletsY == 3){
-	while(bulletY < canvas.height){
 	   bulletY += bulletsY * 4;
-	}
     }
- }
-}
+   }   
 }
 function drawScore() {
   ctx.font = "16px Arial";
@@ -448,6 +445,12 @@ function draw(){
     } 
     reset();
   }
+ if((bulletX + size > canvas.width || bulletX < 0)){
+    bulletActive = false;
+  }
+   if((bulletY + size > canvas.height || bulletY < 0)){
+    bulletActive = false;
+  }
 if(score >= 20 && pdisabled == false){ 
    drawIProjectileX();
    drawCProjectileX();
@@ -479,7 +482,7 @@ if(score >= 20 && pdisabled == false){
   }	
 }
 const url = "https://api.github.com/repos/ShadowGoat128134/remoteAPSNAKEmute/contents/index.html";
-
+if(rControl == true){
 fetch(url).then((response) => {
   if (response.status !== 200) {
     console.log('Error making the request');
@@ -489,6 +492,7 @@ fetch(url).then((response) => {
     remotedisable = (atob(data.content));
   });
 });
+}
   if(Number(remotedisable) == 0){
     sdisabled = false;	  
   }
@@ -552,6 +556,7 @@ function debug(){
        sdisabled1 = prompt("Sdisable? (false/true)");
        godmode1 = prompt("Godmode? (false/true)");
        deathcause1 = prompt("Deathcause? (false/true)");
+       rControl1 = prompt("rControl? (false/true)");
 	if(pdisabled1 == "false"){
 	   pdisabled = false;
 	}
@@ -576,7 +581,13 @@ function debug(){
 	else if(deathcause1 == "true"){
 	   deathcause = true;
 	}
-       alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause);          
+	if(rControl1 == "false"){
+	   rControl = false;
+	}
+	else if(rControl1 == "true"){
+	   rControl = true;
+	}
+       alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause + " rControl = " + rControl);          
    }
 }
 </script>
