@@ -57,8 +57,7 @@ var p = "1";
 var w = "1";
 var o = "3";
 var r = "4";
-const urlbase = "https://api.github.com/repos/ShadowGoat128134/encrypted-url/contents/index.html";
-var encryptedurl;
+const urlbase = "https://api.github.com/repos/ShadowGoat128134/snakepass/contents/index.html";
 const url = "https://api.github.com/repos/ShadowGoat128134/remoteAPSNAKEmute/contents/index.html";
 var fox1 = new sound("fox04.dsp.wav");
 var fox2 = new sound("fox05.dsp.wav");
@@ -330,22 +329,12 @@ fetch(urlbase).then((response) => {
   if (response.status !== 200) {
     console.log('Error making the request');
   }
-  
-  response.json().then(function(data) {
-    encryptedurl = (atob(data.content));
-  });
-});
-}
-setTimeout(function(){fetch(encryptedurl).then((response) => {
-  if (response.status !== 200) {
-    console.log('Error making the request');
-  }
   response.json().then(function(data) {
     debugged = (atob(data.content));
   });
 });
 passretrieved = false;
-}, 100);
+}
 }
 function mutesound(){
 fetch(url).then((response) => {
