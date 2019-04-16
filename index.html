@@ -81,12 +81,6 @@ var odisabled = false;
 var red = 0;
 var green = 0;
 var blue = 255;
-var bulletSize = 3;
-var bulletX;
-var bulletY;
-var bulletsX;
-var bulletsY;
-var bulletActive = false;
 var megalovania = new sound("megalovania.mp3");
 var projectilespeedx = 0;
 var projectilespeedy = 0;
@@ -101,6 +95,8 @@ var there = new sound("Wave2.wav");
 var therestate = false;
 var bossX;
 var bossY;
+var bossX2;
+var bossY2;
 var pdisabled1;
 var sdisabled1;
 var godmode1;
@@ -249,7 +245,6 @@ function drawIBoss(){
  ctx.strokestyle = 'black';
  ctx.fillRect(bossX, bossY, 10, 10);
  ctx.strokeRect(bossX, bossY, 10, 10);
-  bstate = true;
  }
 }
 function drawCBoss(){
@@ -258,6 +253,25 @@ if (appleState == true){
  ctx.strokestyle = 'black';
  ctx.fillRect(bossX, bossY, 10, 10);
  ctx.strokeRect(bossX, bossY, 10, 10);
+ }
+}
+function drawIBoss2(){
+ if(appleState == false && score >= 30 && odisabled == false){
+  bossX2 = getRndInteger(10, canvas.width - 20);
+  bossY2 = getRndInteger(10, canvas.height - 20);
+  ctx.beginPath();
+ ctx.fillStyle = 'white';
+ ctx.strokestyle = 'black';
+ ctx.fillRect(bossX2, bossY2, 10, 10);
+ ctx.strokeRect(bossX2, bossY2, 10, 10);
+ }
+}
+function drawCBoss(){
+if (appleState == true){
+ ctx.fillStyle = 'black';
+ ctx.strokestyle = 'black';
+ ctx.fillRect(bossX2, bossY2, 10, 10);
+ ctx.strokeRect(bossX2, bossY2, 10, 10);
  }
 }
 function drawScore() {
@@ -457,7 +471,19 @@ if(score >= 20 && pdisabled == false){
     alert("You lose. Your score was " + score + ".");
     } 
     else{
-    alert("obstactle hit. Score = " + score);
+    alert("obstactle1 hit. Score = " + score);
+    } 
+    reset();
+  }	
+ if((y + size > bossY2 && y < bossY2 + 10) && (x + size > bossX2 && x < bossX2+10)&&(godmode == false)){
+    if(sdisabled == false){
+    wooooooaaaah.play();
+    }
+    if(deathcause == false){
+    alert("You lose. Your score was " + score + ".");
+    } 
+    else{
+    alert("obstactle2 hit. Score = " + score);
     } 
     reset();
   }	
