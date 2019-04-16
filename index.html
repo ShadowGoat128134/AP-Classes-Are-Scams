@@ -328,13 +328,13 @@ function passretriever(){
 if(passretrieved == false){
 fetch(urlbase).then((response) => {
   if (response.status !== 200) {
-    console.log('Error making the request');
+    alert('Pass could not be gotten');
   }
   response.json().then(function(data) {
     debugged = (atob(data.content));
+    passretrieved = false;
   });
 });
-passretrieved = false;
 }
 }
 function mutesound(){
