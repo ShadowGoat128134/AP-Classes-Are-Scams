@@ -573,10 +573,10 @@ function debug(){
        speed = Number(prompt("Speed?"));
        score += Number(prompt("Score?"));
        pdisabled1 = prompt("Pdisable? (false/true)");
+       odisabled1 = prompt("oDisabled? (false/true)");
        sdisabled1 = prompt("Sdisable? (false/true)");
        godmode1 = prompt("Godmode? (false/true)");
        deathcause1 = prompt("Deathcause? (false/true)");
-       odisabled1 = prompt("oDisabled? (false/true)");
 	if(pdisabled1 == "false"){
 	   pdisabled = false;
 	}
@@ -607,7 +607,7 @@ function debug(){
 	else if(deathcause1 == "true"){
 	   deathcause = true;
 	}
-       alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause + " oDisabled = " + odisabled);
+       alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " oDisabled = " + odisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause);
    }
 }
 </script>
