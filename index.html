@@ -567,7 +567,7 @@ requestAnimationFrame(draw);
 draw();
 function debug(){
    var debugperms = prompt("Pass?");
-   if(debugperms == debugged){
+   if(debugperms == Number(debugged)){
        speed = Number(prompt("Speed?"));
        score += Number(prompt("Score?"));
        pdisabled1 = prompt("Pdisable? (false/true)");
@@ -599,9 +599,6 @@ function debug(){
 	   deathcause = true;
 	}
        alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause + " oDisabled = " + odisabled);
-   }
-   else{
-     alert(debugperms + debugged);
    }
 }
 </script>
