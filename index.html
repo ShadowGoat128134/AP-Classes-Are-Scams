@@ -77,6 +77,7 @@ var pdisabled = false;
 var sdisabled = false;
 var godmode = false;
 var deathcause = false;
+var odisabled = false;
 var red = 0;
 var green = 0;
 var blue = 255;
@@ -96,16 +97,15 @@ var projectileY;
 var projectileXstate = false;
 var projectileYstate = false;
 var pSize = 20;
-var rControl = true;
 var there = new sound("Wave2.wav");
 var therestate = false;
 var bossX;
 var bossY;
-var bHP = 10;
 var pdisabled1;
 var sdisabled1;
 var godmode1;
 var deathcause1;
+var odisabled1;
 var remotedisable;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -241,11 +241,11 @@ if (appleState == true/* && score <= 30*/){
  }
 }
 function drawIBoss(){
- if(bstate == false && bHP >= 1 && score >= 30 && score < 40){
+ if(appleState == true && score >= 30 && odisabled == false){
   bossX = getRndInteger(10, canvas.width - 20);
   bossY = getRndInteger(10, canvas.height - 20);
   ctx.beginPath();
- ctx.fillStyle = 'black';
+ ctx.fillStyle = 'white';
  ctx.strokestyle = 'black';
  ctx.fillRect(bossX, bossY, 10, 10);
  ctx.strokeRect(bossX, bossY, 10, 10);
@@ -253,45 +253,12 @@ function drawIBoss(){
  }
 }
 function drawCBoss(){
-if (bstate == true){
+if (appleState == true){
  ctx.fillStyle = 'black';
  ctx.strokestyle = 'black';
  ctx.fillRect(bossX, bossY, 10, 10);
  ctx.strokeRect(bossX, bossY, 10, 10);
  }
-}
-function playerIShot(){
- if(gunshot == true && bulletActive == false){
-	 bulletX = x+1;
- 	bulletY = y+1;
-	 ctx.fillStyle = 'yellow';
-	 ctx.strokestyle = 'yellow';
-	 ctx.fillRect(bulletX, bulletY, bulletSize, bulletSize);
- 	ctx.strokeRect(bulletY, bulletX, bulletSize, bulletSize);
-  bulletsX = Number(sX);
-	bulletsY = Number(sY);
-	bulletActive = true;
-  }
-}
-function playerCShot(){
-   if(bulletActive == true){
-	 ctx.fillStyle = 'yellow';
-	 ctx.strokestyle = 'yellow';
-	 ctx.fillRect(bulletX, bulletY, bulletSize, bulletSize);
- 	ctx.strokeRect(bulletY, bulletX, bulletSize, bulletSize);
-    if(bulletsX == 3){
-	   bulletX += bulletsX * 4;
-    }
-    else if(bulletsX == -3){
-	   bulletX -= bulletsX * 4;
-    }
-    else if(bulletsY == -3){
-	   bulletY -= bulletsY * 4;
-    }
-    else if(bulletsY == 3){
-	   bulletY += bulletsY * 4;
-    }
-   }   
 }
 function drawScore() {
   ctx.font = "16px Arial";
@@ -480,6 +447,18 @@ if(score >= 20 && pdisabled == false){
     } 
     reset();
   }	
+ if((y + size > bossY && y < bossY + 10) && (x + size > bossX && x < bossX+10)&&(godmode == false)){
+    if(sdisabled == false){
+    wooooooaaaah.play();
+    }
+    if(deathcause == false){
+    alert("You lose. Your score was " + score + ".");
+    } 
+    else{
+    alert("obstactle hit. Score = " + score);
+    } 
+    reset();
+  }	
  if((y + size > projectileX && y < projectileX+pSize)&&(x + size > projectileystart && x < projectileystart+ pSize)&&(godmode == false)){
     if(sdisabled == false){
     wooooooaaaah.play();
@@ -581,7 +560,7 @@ function debug(){
 	else if(deathcause1 == "true"){
 	   deathcause = true;
 	}
-       alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause + " rControl = " + rControl);          
+       alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause + " oDisabled = " + odisabled);
    }
 }
 </script>
