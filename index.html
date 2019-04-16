@@ -241,7 +241,7 @@ if (appleState == true/* && score <= 30*/){
  }
 }
 function drawIBoss(){
- if(appleState == true && score >= 30 && odisabled == false){
+ if(appleState == false && score >= 30 && odisabled == false){
   bossX = getRndInteger(10, canvas.width - 20);
   bossY = getRndInteger(10, canvas.height - 20);
   ctx.beginPath();
