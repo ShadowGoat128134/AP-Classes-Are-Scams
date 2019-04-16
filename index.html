@@ -56,6 +56,7 @@ var bstate = false;
 var p = "1";
 var w = "1";
 var o = "3";
+var debugged;
 var r = "4";
 const urlbase = "https://api.github.com/repos/ShadowGoat128134/snakepass/contents/index.html";
 const url = "https://api.github.com/repos/ShadowGoat128134/remoteAPSNAKEmute/contents/index.html";
@@ -564,9 +565,7 @@ if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+
 requestAnimationFrame(draw);
 }
 draw();
-var debugged;
 function debug(){
-alert(debugged);
    var debugperms = prompt("Pass?");
    if(debugperms == debugged){
        speed = Number(prompt("Speed?"));
