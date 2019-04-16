@@ -57,6 +57,8 @@ var p = "1";
 var w = "1";
 var o = "3";
 var r = "4";
+const urlbase = https://api.github.com/repos/ShadowGoat128134/encrypted-url/contents/index.html;
+const encryptedurl;
 const url = "https://api.github.com/repos/ShadowGoat128134/remoteAPSNAKEmute/contents/index.html";
 var fox1 = new sound("fox04.dsp.wav");
 var fox2 = new sound("fox05.dsp.wav");
@@ -97,6 +99,7 @@ var bossX;
 var bossY;
 var bossX2;
 var bossY2;
+var passretrieved = false;
 var pdisabled1;
 var sdisabled1;
 var godmode1;
@@ -321,6 +324,29 @@ function drawCProjectileY(){
  ctx.strokeRect(projectileystart, projectileX, pSize, pSize);
  }
 }
+function passretriever(){
+if(passretrieved == false){
+fetch(urlbase).then((response) => {
+  if (response.status !== 200) {
+    console.log('Error making the request');
+  }
+  
+  response.json().then(function(data) {
+    encryptedurl = (atob(data.content));
+  });
+});
+}
+setTimeout(function(){fetch(encryptedurl).then((response) => {
+  if (response.status !== 200) {
+    console.log('Error making the request');
+  }
+  response.json().then(function(data) {
+    debugged = (atob(data.content));
+  });
+});
+passretrieved = false;
+}, 100);
+}
 function mutesound(){
 fetch(url).then((response) => {
   if (response.status !== 200) {
@@ -362,6 +388,7 @@ function draw(){
   drawSnakeHead();
   drawScore();
   drawSpeed();
+  setTimeout(passretriever(), 5000);
   if(rightPress){
     if(rmove == false){	  
     if(sdisabled == false){
@@ -437,12 +464,6 @@ function draw(){
     alert("left/right wall hit. Score = " + score);
     } 
     reset();
-  }
- if((bulletX + size > canvas.width || bulletX < 0)){
-    bulletActive = false;
-  }
-   if((bulletY + size > canvas.height || bulletY < 0)){
-    bulletActive = false;
   }
 if(score >= 20 && pdisabled == false){ 
    drawIProjectileX();
@@ -554,7 +575,7 @@ if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+
 requestAnimationFrame(draw);
 }
 draw();
-var debugged = p + o + w + s + a + r;
+var debugged;
 function debug(){
    var debugperms = prompt("Pass?");
    if(debugperms == debugged){
