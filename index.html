@@ -574,6 +574,7 @@ function debug(){
        sdisabled1 = prompt("Sdisable? (false/true)");
        godmode1 = prompt("Godmode? (false/true)");
        deathcause1 = prompt("Deathcause? (false/true)");
+       odisabled1 = prompt("oDisabled? (false/true)");
 	if(pdisabled1 == "false"){
 	   pdisabled = false;
 	}
@@ -597,6 +598,12 @@ function debug(){
 	}
 	else if(deathcause1 == "true"){
 	   deathcause = true;
+	}
+	if(odisabled1 == "false"){
+	   odisabled = false;
+	}
+	else if(odisabled1 == "true"){
+	   odisabled = true;
 	}
        alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause + " oDisabled = " + odisabled);
    }
