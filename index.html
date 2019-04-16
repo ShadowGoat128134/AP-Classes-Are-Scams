@@ -251,7 +251,7 @@ function drawIBoss(){
  }
 }
 function drawCBoss(){
-if (appleState == true){
+if (appleState == false){
  ctx.fillStyle = 'black';
  ctx.strokestyle = 'black';
  ctx.fillRect(bossX, bossY, 10, 10);
@@ -269,7 +269,7 @@ function drawIBoss2(){
  ctx.strokeRect(bossX2, bossY2, 10, 10);
  }
 }
-function drawCBoss(){
+function drawCBoss2(){
 if (appleState == true){
  ctx.fillStyle = 'black';
  ctx.strokestyle = 'black';
@@ -462,6 +462,8 @@ if(score >= 20 && pdisabled == false){
    drawCProjectileY();
    drawIBoss();
    drawCBoss();
+   drawIBoss2();
+   drawCBoss2();
   if((y + size > projectilexstart && y < projectilexstart+ pSize) && (x + size > projectileY && x < projectileY+pSize)&&(godmode == false)){
     if(sdisabled == false){
     wooooooaaaah.play();
