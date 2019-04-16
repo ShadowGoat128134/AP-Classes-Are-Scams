@@ -244,7 +244,7 @@ function drawIBoss(){
   bossX = getRndInteger(10, canvas.width - 20);
   bossY = getRndInteger(10, canvas.height - 20);
   ctx.beginPath();
- ctx.fillStyle = 'black';
+ ctx.fillStyle = 'white';
  ctx.strokestyle = 'black';
  ctx.fillRect(bossX, bossY, 10, 10);
  ctx.strokeRect(bossX, bossY, 10, 10);
@@ -252,7 +252,7 @@ function drawIBoss(){
 }
 function drawCBoss(){
 if (appleState == true){
- ctx.fillStyle = 'black';
+ ctx.fillStyle = 'white';
  ctx.strokestyle = 'black';
  ctx.fillRect(bossX, bossY, 10, 10);
  ctx.strokeRect(bossX, bossY, 10, 10);
@@ -271,7 +271,7 @@ function drawIBoss2(){
 }
 function drawCBoss2(){
 if (appleState == true){
- ctx.fillStyle = 'black';
+ ctx.fillStyle = 'white';
  ctx.strokestyle = 'black';
  ctx.fillRect(bossX2, bossY2, 10, 10);
  ctx.strokeRect(bossX2, bossY2, 10, 10);
@@ -291,7 +291,7 @@ function drawIProjectileX(){
 if (score >= 20&& projectileXstate == false){
  projectileXstate = true;
  projectileY = getRndInteger(0, canvas.width - 20);
- ctx.fillStyle = 'black';
+ ctx.fillStyle = 'white';
  ctx.strokestyle = 'black';
  ctx.fillRect(projectileY, 0, pSize, pSize);
  ctx.strokeRect(projectileY, 0, pSize, pSize);
@@ -299,7 +299,7 @@ if (score >= 20&& projectileXstate == false){
 }
 function drawCProjectileX(){
  if(projectileXstate == true){
- ctx.fillStyle = 'black';
+ ctx.fillStyle = 'white';
  ctx.strokestyle = 'black';
  ctx.fillRect(projectileY, projectilexstart, pSize, pSize);
  ctx.strokeRect(projectileY, projectilexstart, pSize, pSize);
@@ -309,7 +309,7 @@ function drawIProjectileY(){
 if (score >= 20&&projectileYstate == false){
  projectileYstate = true;
  projectileX = getRndInteger(0, canvas.height - 20);
- ctx.fillStyle = 'black';
+ ctx.fillStyle = 'white';
  ctx.strokestyle = 'black';
  ctx.fillRect(0, projectileX, pSize, pSize);
  ctx.strokeRect(0, projectileX, pSize, pSize);
@@ -318,7 +318,7 @@ if (score >= 20&&projectileYstate == false){
 var s = "8";
 function drawCProjectileY(){
  if(projectileYstate == true){
- ctx.fillStyle = 'black';
+ ctx.fillStyle = 'white';
  ctx.strokestyle = 'black';
  ctx.fillRect(projectileystart, projectileX, pSize, pSize);
  ctx.strokeRect(projectileystart, projectileX, pSize, pSize);
