@@ -251,7 +251,7 @@ function drawIBoss(){
  }
 }
 function drawCBoss(){
-if (appleState == false){
+if (appleState == true){
  ctx.fillStyle = 'black';
  ctx.strokestyle = 'black';
  ctx.fillRect(bossX, bossY, 10, 10);
@@ -583,6 +583,12 @@ function debug(){
 	else if(pdisabled1 == "true"){
 	   pdisabled = true;
 	}
+	if(odisabled1 == "false"){
+	   odisabled = false;
+	}
+	else if(odisabled1 == "true"){
+	   odisabled = true;
+	}
 	if(sdisabled1 == "false"){
 	   sdisabled = false;
 	}
@@ -600,12 +606,6 @@ function debug(){
 	}
 	else if(deathcause1 == "true"){
 	   deathcause = true;
-	}
-	if(odisabled1 == "false"){
-	   odisabled = false;
-	}
-	else if(odisabled1 == "true"){
-	   odisabled = true;
 	}
        alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause + " oDisabled = " + odisabled);
    }
