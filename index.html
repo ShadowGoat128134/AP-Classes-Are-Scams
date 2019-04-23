@@ -53,12 +53,8 @@ var appleY = -10;
 var speed=0;
 var cycles=0;
 var bstate = false;
-var p = "1";
-var w = "1";
-var o = "3";
 var debugged;
-var r = "4";
-const urlbase = "https://api.github.com/repos/ShadowGoat128134/snakepass/contents/index.html";
+const urlbase = "https://api.github.com/repos/ShadowGoat128134/encrypted-url/contents/index.html";
 var finalurl;
 const url = "https://api.github.com/repos/ShadowGoat128134/remoteAPSNAKEmute/contents/index.html";
 var fox1 = new sound("fox04.dsp.wav");
@@ -316,7 +312,6 @@ if (score >= 20&&projectileYstate == false){
  ctx.strokeRect(0, projectileX, pSize, pSize);
  }
 }
-var s = "8";
 function drawCProjectileY(){
  if(projectileYstate == true){
  ctx.fillStyle = 'white';
@@ -370,7 +365,6 @@ function randColor(){
      rColor= "#06f";
 }
 }
-var a = "2";
 randColor();
 function drawSnakeHead(){
   ctx.beginPath();
