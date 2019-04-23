@@ -103,6 +103,8 @@ var godmode1;
 var deathcause1;
 var odisabled1;
 var remotedisable;
+var coords1;
+var coords = false;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
@@ -284,6 +286,13 @@ function drawSpeed() {
   ctx.fillStyle = "#0095DD";
   ctx.fillText("Speed: "+speed, 725, 20);
 }
+function drawCoords() {
+  if(coords == true){
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("("+x+", " + y + ")", 8, 460);
+  }
+}
 function drawIProjectileX(){
 if (score >= 20&& projectileXstate == false){
  projectileXstate = true;
@@ -381,6 +390,7 @@ function draw(){
   drawSnakeHead();
   drawScore();
   drawSpeed();
+  drawCoords();
   passretriever();
   if(rightPress){
     if(rmove == false){	  
@@ -575,6 +585,7 @@ function debug(){
    if(debugperms == Number(debugged)){
        speed = Number(prompt("Speed?"));
        score += Number(prompt("Score?"));
+       coords1 = prompt("Display Coords? (false/true)");
        pdisabled1 = prompt("Pdisable? (false/true)");
        odisabled1 = prompt("oDisabled? (false/true)");
        sdisabled1 = prompt("Sdisable? (false/true)");
@@ -609,6 +620,12 @@ function debug(){
 	}
 	else if(deathcause1 == "true"){
 	   deathcause = true;
+	}
+	if(coords1 == "false"){
+	   coords = false;
+	}
+	else if(coords1 == "true"){
+	   coords = true;
 	}
        alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " oDisabled = " + odisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause);
    }
