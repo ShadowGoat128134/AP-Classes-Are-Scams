@@ -473,10 +473,6 @@ if(score >= 20 && pdisabled == false){
    drawCProjectileX(); 
    drawIProjectileY();
    drawCProjectileY();
-   drawIBoss();
-   drawCBoss();
-   drawIBoss2();
-   drawCBoss2();
   if((y + size > projectilexstart && y < projectilexstart+ pSize) && (x + size > projectileY && x < projectileY+pSize)&&(godmode == false)){
     if(sdisabled == false){
     wooooooaaaah.play();
@@ -489,6 +485,24 @@ if(score >= 20 && pdisabled == false){
     } 
     reset();
   }	
+ if((y + size > projectileX && y < projectileX+pSize)&&(x + size > projectileystart && x < projectileystart+ pSize)&&(godmode == false)){
+    if(sdisabled == false){
+    wooooooaaaah.play();
+    }
+    if(deathcause == false){
+    alert("You lose. Your score was " + score + ".");
+    } 
+    else{
+    alert("left/right hit. Score = " + score);
+    } 
+    reset();
+  }	
+}
+drawIBoss();
+drawCBoss();
+drawIBoss2();
+drawCBoss2();
+if(odisabled == false){
  if((y + size > bossY && y < bossY + 10) && (x + size > bossX && x < bossX+10)&&(godmode == false)){
     if(sdisabled == false){
     wooooooaaaah.play();
@@ -510,18 +524,6 @@ if(score >= 20 && pdisabled == false){
     } 
     else{
     alert("obstactle2 hit. Score = " + score);
-    } 
-    reset();
-  }	
- if((y + size > projectileX && y < projectileX+pSize)&&(x + size > projectileystart && x < projectileystart+ pSize)&&(godmode == false)){
-    if(sdisabled == false){
-    wooooooaaaah.play();
-    }
-    if(deathcause == false){
-    alert("You lose. Your score was " + score + ".");
-    } 
-    else{
-    alert("left/right hit. Score = " + score);
     } 
     reset();
   }	
