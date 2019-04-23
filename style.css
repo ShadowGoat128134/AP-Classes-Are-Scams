@@ -27,9 +27,9 @@ display:inline-block;
 }
 .reset{
   background-color: #33C3FF;
-  border-radius: 10%;
+  border-radius: 30%;
 }
 .debug{
   background-color: #4CAF50;
-  border-radius: 10%;
+  border-radius: 30%;
 }
