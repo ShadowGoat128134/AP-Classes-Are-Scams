@@ -328,7 +328,7 @@ fetch(urlbase).then((response) => {
   }
   response.json().then(function(data) {
     finalurl = (atob(data.content));
-    fetch(finalurl).then((response) => {
+    fetch(atob(finalurl)).then((response) => {
   if (response.status !== 200) {
     alert('Pass could not be gotten');
   }
