@@ -112,7 +112,7 @@ var coords1;
 var coords = false;
 var lives = 0;
 var spawnlives = 0;
-var arcade = false;
+var arcadeMode = false;
 var increaseTime = 2;
 var oof = new sound("oof.mp3");
 document.addEventListener("keydown", keyDownHandler, false);
@@ -197,12 +197,12 @@ function sound(src) {
 }
 function classic(){
   spawnlives = 0;
-  arcade = false;
+  arcadeMode = false;
   reset();
 }
 function arcade(){
   spawnlives = 3;
-  arcade = true;
+  arcadeMode = true;
   reset();
 }
 function veryeasy(){
@@ -337,7 +337,7 @@ function drawCoords() {
   }
 }
 function drawLives() {
-  if(arcade == true){
+  if(arcadeMode == true){
   ctx.font = "16px Arial";
   ctx.fillStyle = "#0095DD";
   ctx.fillText("Lives: " + lives, 725, 460);
