@@ -16,7 +16,10 @@
 <p style="margin:50px"></p>
 	
 <button class = "debug" style="margin-left:30px"  type="button" onclick= "debug()">Debug</button>
-<strong style= "margin-top:20px">version 3.2: I added lives so stop being bad. all the two new buttons do is change the lives</strong>
+<button class = "debug" style="margin-left:30px"  type="button" onclick= "veryeasy()">Very Easy</button>
+<button class = "debug" style="margin-left:30px"  type="button" onclick= "easy()">Easy</button>
+<button class = "debug" style="margin-left:30px"  type="button" onclick= "normal()">Normal</button>
+<button class = "debug" style="margin-left:30px"  type="button" onclick= "hard()">Hard</button>
 <button class = "reset" style="margin-right:30px; float: right;" type="button" onclick= "reset()">Reset</button>
 <button class = "reset" style="margin-right:30px; float: right;" type="button" onclick= "arcade()">Arcade Mode</button>
 <button class = "reset" style="margin-right:30px; float: right;" type="button" onclick= "classic()">Classic Mode</button>
@@ -109,6 +112,7 @@ var coords1;
 var coords = false;
 var lives = 3;
 var spawnlives = 3;
+var increaseTime = 2;
 var oof = new sound("oof.mp3");
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -196,6 +200,28 @@ function classic(){
 }
 function arcade(){
   spawnlives = 3;
+  reset();
+}
+function veryeasy(){
+  increaseTime = 3;
+  pdisabled = true;
+  odisabled = true;
+  reset();
+}
+function easy(){
+  odisabled = true;
+  pdisabled = false;
+  reset();
+}
+function normal(){
+  odisabled = false;
+  pdisabled = false;
+  reset();
+}
+function hard(){
+  odisabled = false;
+  pdisabled = false;
+  increaseTime = 1;
   reset();
 }
 function reset(){
@@ -638,7 +664,7 @@ if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+
     blue = getRndInteger(0, 255);
     randsound();
     randColor();
-      if(cycles==2){
+      if(cycles==increaseTime){
         speed += 1;
         cycles = 0;
       }
