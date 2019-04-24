@@ -16,13 +16,16 @@
 <p style="margin:50px"></p>
 	
 <button class = "debug" style="margin-left:30px"  type="button" onclick= "debug()">Debug</button>
+<h1 style="margin-left:30px">Difficulty: </h1>
 <button class = "debug" style="margin-left:30px"  type="button" onclick= "veryeasy()">Very Easy</button>
 <button class = "debug" style="margin-left:30px"  type="button" onclick= "easy()">Easy</button>
 <button class = "debug" style="margin-left:30px"  type="button" onclick= "normal()">Normal</button>
 <button class = "debug" style="margin-left:30px"  type="button" onclick= "hard()">Hard</button>
+<h1 style="margin-left:30px">  ver. 3.4: I added lives, 2 very similar modes, and difficulty. </h1>
 <button class = "reset" style="margin-right:30px; float: right;" type="button" onclick= "reset()">Reset</button>
 <button class = "reset" style="margin-right:30px; float: right;" type="button" onclick= "arcade()">Arcade Mode</button>
 <button class = "reset" style="margin-right:30px; float: right;" type="button" onclick= "classic()">Classic Mode</button>
+<h1 style="margin-left:30px">Gamemode: </h1>
   <button class="up" id="mobile-only" type="button" onclick= "upPress = true;rightPress = false;
 leftPress = false;
 downPress = false;
@@ -114,6 +117,8 @@ var lives = 0;
 var spawnlives = 0;
 var arcadeMode = false;
 var increaseTime = 2;
+var pspawn = 20;
+var ospawn = 30;
 var oof = new sound("oof.mp3");
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -209,21 +214,29 @@ function veryeasy(){
   increaseTime = 3;
   pdisabled = true;
   odisabled = true;
+  pspawn = 20;
+  ospawn = 30;
   reset();
 }
 function easy(){
   odisabled = true;
   pdisabled = false;
+  pspawn = 20;
+  ospawn = 30;
   reset();
 }
 function normal(){
   odisabled = false;
   pdisabled = false;
+  pspawn = 20;
+  ospawn = 30;
   reset();
 }
 function hard(){
   odisabled = false;
   pdisabled = false;
+  pspawn = 10;
+  ospawn = 15
   increaseTime = 1;
   reset();
 }
@@ -282,7 +295,7 @@ if (appleState == true/* && score <= 30*/){
  }
 }
 function drawIBoss(){
- if(appleState == false && score >= 30 && odisabled == false){
+ if(appleState == false && score >= ospawn && odisabled == false){
   bossX = getRndInteger(10, canvas.width - 20);
   bossY = getRndInteger(10, canvas.height - 20);
   ctx.beginPath();
@@ -301,7 +314,7 @@ if (appleState == true){
  }
 }
 function drawIBoss2(){
- if(appleState == false && score >= 30 && odisabled == false){
+ if(appleState == false && score >= ospawn && odisabled == false){
   bossX2 = getRndInteger(10, canvas.width - 20);
   bossY2 = getRndInteger(10, canvas.height - 20);
   ctx.beginPath();
@@ -344,7 +357,7 @@ function drawLives() {
   }
 }
 function drawIProjectileX(){
-if (score >= 20&& projectileXstate == false){
+if (score >= pspawn && projectileXstate == false){
  projectileXstate = true;
  projectileY = getRndInteger(0, canvas.width - 20);
  ctx.fillStyle = 'white';
@@ -362,7 +375,7 @@ function drawCProjectileX(){
  }
 }
 function drawIProjectileY(){
-if (score >= 20&&projectileYstate == false){
+if (score >= spawn && projectileYstate == false){
  projectileYstate = true;
  projectileX = getRndInteger(0, canvas.height - 20);
  ctx.fillStyle = 'white';
