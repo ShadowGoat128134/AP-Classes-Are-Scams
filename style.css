@@ -33,4 +33,5 @@ display:inline-block;
 }
 h1 {
   font-size: 14px;
+  display: inline-block;
 }
