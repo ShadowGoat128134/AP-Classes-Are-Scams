@@ -106,6 +106,7 @@ var remotedisable;
 var coords1;
 var coords = false;
 var lives = 3;
+var oof = new sound("oof.mp3");
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
@@ -455,6 +456,7 @@ function draw(){
   if((x + size > canvas.width || x < 0)&&(godmode == false)){
     if(lives > 0){
     lives--;
+    oof.play();
     sX = -(Number(sX));
     sY = -(Number(sY));
   }
@@ -474,6 +476,7 @@ function draw(){
    if((y + size > canvas.height || y < 0)&&(godmode == false)){
     if(lives > 0){
     lives--;
+    oof.play();
     sX = -(Number(sX));
     sY = -(Number(sY));
   }
@@ -498,6 +501,7 @@ if(score >= 20 && pdisabled == false){
   if((y + size > projectilexstart && y < projectilexstart+ pSize) && (x + size > projectileY && x < projectileY+pSize)&&(godmode == false)){
     if(lives > 0){
     lives--;
+    oof.play();
     sX = -(Number(sX));
     sY = -(Number(sY));
   }
@@ -517,6 +521,7 @@ if(score >= 20 && pdisabled == false){
  if((y + size > projectileX && y < projectileX+pSize)&&(x + size > projectileystart && x < projectileystart+ pSize)&&(godmode == false)){
   if(lives > 0){
     lives--;
+    oof.play();
     sX = -(Number(sX));
     sY = -(Number(sY));
   }
@@ -542,6 +547,7 @@ if(odisabled == false){
  if((y + size > bossY && y < bossY + 10) && (x + size > bossX && x < bossX+10)&&(godmode == false)){
   if(lives > 0){
     lives--;
+    oof.play();
     sX = -(Number(sX));
     sY = -(Number(sY));
   }
@@ -561,6 +567,7 @@ if(odisabled == false){
  if((y + size > bossY2 && y < bossY2 + 10) && (x + size > bossX2 && x < bossX2+10)&&(godmode == false)){
   if(lives > 0){
     lives--;
+    oof.play();
     sX = -(Number(sX));
     sY = -(Number(sY));
   }
