@@ -18,6 +18,8 @@
 <button class = "debug" style="margin-left:30px"  type="button" onclick= "debug()">Debug</button>
 <strong style= "margin-left:550px">version 3.0: I added lives so stop being bad</strong>
 <button class = "reset" style="margin-right:30px; float: right;" type="button" onclick= "reset()">Reset</button>
+<button class = "reset" style="margin-right:30px; float: right;" type="button" onclick= "arcade()">Arcade Mode</button>
+<button class = "reset" style="margin-right:30px; float: right;" type="button" onclick= "classic()">Classic Mode</button>
   <button class="up" id="mobile-only" type="button" onclick= "upPress = true;rightPress = false;
 leftPress = false;
 downPress = false;
@@ -106,6 +108,7 @@ var remotedisable;
 var coords1;
 var coords = false;
 var lives = 3;
+var spawnlives = 3;
 var oof = new sound("oof.mp3");
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -187,6 +190,14 @@ function sound(src) {
     this.sound.pause();
   };
 }
+function classic(){
+  spawnlives = 1;
+  reset();
+}
+function arcade(){
+  spawnlives = 3;
+  reset();
+}
 function reset(){
   score = 0;
   x = canvas.width/2;
@@ -203,7 +214,7 @@ function reset(){
   projectileY = 0;
   projectilespeedx = 0;
   projectilespeedy = 0;
-  lives = 3;
+  lives = Number(spawnLives);
   therestate = false;
   megalovania.stop();
   appleState = false;
