@@ -110,8 +110,9 @@ var odisabled1;
 var remotedisable;
 var coords1;
 var coords = false;
-var lives = 3;
-var spawnlives = 3;
+var lives = 0;
+var spawnlives = 0;
+var arcade = false;
 var increaseTime = 2;
 var oof = new sound("oof.mp3");
 document.addEventListener("keydown", keyDownHandler, false);
@@ -196,10 +197,12 @@ function sound(src) {
 }
 function classic(){
   spawnlives = 0;
+  arcade = false;
   reset();
 }
 function arcade(){
   spawnlives = 3;
+  arcade = true;
   reset();
 }
 function veryeasy(){
@@ -334,9 +337,11 @@ function drawCoords() {
   }
 }
 function drawLives() {
+  if(arcade == true){
   ctx.font = "16px Arial";
   ctx.fillStyle = "#0095DD";
   ctx.fillText("Lives: " + lives, 725, 460);
+  }
 }
 function drawIProjectileX(){
 if (score >= 20&& projectileXstate == false){
