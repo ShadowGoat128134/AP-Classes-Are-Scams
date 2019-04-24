@@ -117,8 +117,6 @@ var lives = 0;
 var spawnlives = 0;
 var arcadeMode = false;
 var increaseTime = 2;
-var pspawn = 20;
-var ospawn = 30;
 var oof = new sound("oof.mp3");
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -214,29 +212,21 @@ function veryeasy(){
   increaseTime = 3;
   pdisabled = true;
   odisabled = true;
-  pspawn = 20;
-  ospawn = 30;
   reset();
 }
 function easy(){
   odisabled = true;
   pdisabled = false;
-  pspawn = 20;
-  ospawn = 30;
   reset();
 }
 function normal(){
   odisabled = false;
   pdisabled = false;
-  pspawn = 20;
-  ospawn = 30;
   reset();
 }
 function hard(){
   odisabled = false;
   pdisabled = false;
-  pspawn = 10;
-  ospawn = 15
   increaseTime = 1;
   reset();
 }
@@ -295,7 +285,7 @@ if (appleState == true/* && score <= 30*/){
  }
 }
 function drawIBoss(){
- if(appleState == false && score >= ospawn && odisabled == false){
+ if(appleState == false && score >= 30 && odisabled == false){
   bossX = getRndInteger(10, canvas.width - 20);
   bossY = getRndInteger(10, canvas.height - 20);
   ctx.beginPath();
@@ -314,7 +304,7 @@ if (appleState == true){
  }
 }
 function drawIBoss2(){
- if(appleState == false && score >= ospawn && odisabled == false){
+ if(appleState == false && score >= 30 && odisabled == false){
   bossX2 = getRndInteger(10, canvas.width - 20);
   bossY2 = getRndInteger(10, canvas.height - 20);
   ctx.beginPath();
@@ -357,7 +347,7 @@ function drawLives() {
   }
 }
 function drawIProjectileX(){
-if (score >= pspawn && projectileXstate == false){
+if (score >= 20 && projectileXstate == false){
  projectileXstate = true;
  projectileY = getRndInteger(0, canvas.width - 20);
  ctx.fillStyle = 'white';
@@ -375,7 +365,7 @@ function drawCProjectileX(){
  }
 }
 function drawIProjectileY(){
-if (score >= spawn && projectileYstate == false){
+if (score >= 20 && projectileYstate == false){
  projectileYstate = true;
  projectileX = getRndInteger(0, canvas.height - 20);
  ctx.fillStyle = 'white';
