@@ -13,10 +13,10 @@
 <br>
 <canvas id="Snakeplane" position: fixed; width="800" height="480"></canvas>
 <br>
-
 <p style="margin:50px"></p>
 	
 <button class = "debug" style="margin-left:30px"  type="button" onclick= "debug()">Debug</button>
+<strong style= "margin-left:550px">version 3.0: I added lives so stop being bad</strong>
 <button class = "reset" style="margin-right:30px; float: right;" type="button" onclick= "reset()">Reset</button>
   <button class="up" id="mobile-only" type="button" onclick= "upPress = true;rightPress = false;
 leftPress = false;
@@ -105,6 +105,7 @@ var odisabled1;
 var remotedisable;
 var coords1;
 var coords = false;
+var lives = 3;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
@@ -201,6 +202,7 @@ function reset(){
   projectileY = 0;
   projectilespeedx = 0;
   projectilespeedy = 0;
+  lives = 3;
   therestate = false;
   megalovania.stop();
   appleState = false;
@@ -293,6 +295,11 @@ function drawCoords() {
   ctx.fillText("("+x+", " + y + ")", 8, 460);
   }
 }
+function drawLives() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Lives: " + lives, 725, 460);
+}
 function drawIProjectileX(){
 if (score >= 20&& projectileXstate == false){
  projectileXstate = true;
@@ -378,7 +385,7 @@ randColor();
 function drawSnakeHead(){
   ctx.beginPath();
   ctx.rect(x, y, size, size);
-	if(score>=10){
+	if(score>=10 && godmode == false){
     	randColor();
   	}
   ctx.fillStyle = (rColor);
@@ -391,6 +398,7 @@ function draw(){
   drawScore();
   drawSpeed();
   drawCoords();
+  drawLives();
   passretriever();
   if(rightPress){
     if(rmove == false){	  
@@ -445,6 +453,31 @@ function draw(){
     sY = 3+speed;
   }
   if((x + size > canvas.width || x < 0)&&(godmode == false)){
+    if(lives > 0){
+    lives--;
+    sX = -(Number(sX));
+    sY = -(Number(sY));
+  }
+  else{
+    if(sdisabled == false){
+    wooooooaaaah.play();
+    }
+    if(deathcause == false){
+    alert("You lose. Your score was " + score + ".");
+    } 
+    else{
+    alert("left/right hit. Score = " + score);
+    } 
+    reset();
+  }
+  }
+   if((y + size > canvas.height || y < 0)&&(godmode == false)){
+    if(lives > 0){
+    lives--;
+    sX = -(Number(sX));
+    sY = -(Number(sY));
+  }
+  else{
     if(sdisabled == false){
     wooooooaaaah.play();
     }
@@ -456,17 +489,6 @@ function draw(){
     } 
     reset();
   }
-   if((y + size > canvas.height || y < 0)&&(godmode == false)){
-    if(sdisabled == false){
-    wooooooaaaah.play();
-    }
-    if(deathcause == false){
-    alert("You lose. Your score was " + score + ".");
-    } 
-    else{
-    alert("left/right wall hit. Score = " + score);
-    } 
-    reset();
   }
 if(score >= 20 && pdisabled == false){ 
    drawIProjectileX();
@@ -474,6 +496,12 @@ if(score >= 20 && pdisabled == false){
    drawIProjectileY();
    drawCProjectileY();
   if((y + size > projectilexstart && y < projectilexstart+ pSize) && (x + size > projectileY && x < projectileY+pSize)&&(godmode == false)){
+    if(lives > 0){
+    lives--;
+    sX = -(Number(sX));
+    sY = -(Number(sY));
+  }
+  else{
     if(sdisabled == false){
     wooooooaaaah.play();
     }
@@ -484,8 +512,15 @@ if(score >= 20 && pdisabled == false){
     alert("top/bottom projectile hit. Score = " + score);
     } 
     reset();
+  }
   }	
  if((y + size > projectileX && y < projectileX+pSize)&&(x + size > projectileystart && x < projectileystart+ pSize)&&(godmode == false)){
+  if(lives > 0){
+    lives--;
+    sX = -(Number(sX));
+    sY = -(Number(sY));
+  }
+  else{
     if(sdisabled == false){
     wooooooaaaah.play();
     }
@@ -493,10 +528,11 @@ if(score >= 20 && pdisabled == false){
     alert("You lose. Your score was " + score + ".");
     } 
     else{
-    alert("left/right hit. Score = " + score);
+    alert("left/right projectile hit. Score = " + score);
     } 
     reset();
-  }	
+  }
+}
 }
 drawIBoss();
 drawCBoss();
@@ -504,6 +540,12 @@ drawIBoss2();
 drawCBoss2();
 if(odisabled == false){
  if((y + size > bossY && y < bossY + 10) && (x + size > bossX && x < bossX+10)&&(godmode == false)){
+  if(lives > 0){
+    lives--;
+    sX = -(Number(sX));
+    sY = -(Number(sY));
+  }
+  else{
     if(sdisabled == false){
     wooooooaaaah.play();
     }
@@ -514,8 +556,15 @@ if(odisabled == false){
     alert("obstactle1 hit. Score = " + score);
     } 
     reset();
-  }	
+  }
+}
  if((y + size > bossY2 && y < bossY2 + 10) && (x + size > bossX2 && x < bossX2+10)&&(godmode == false)){
+  if(lives > 0){
+    lives--;
+    sX = -(Number(sX));
+    sY = -(Number(sY));
+  }
+  else{
     if(sdisabled == false){
     wooooooaaaah.play();
     }
@@ -526,7 +575,8 @@ if(odisabled == false){
     alert("obstactle2 hit. Score = " + score);
     } 
     reset();
-  }	
+  }
+}
 }
   setInterval(mutesound(),120000); 
   if(Number(remotedisable) == 0){
@@ -586,7 +636,8 @@ function debug(){
    var debugperms = prompt("Pass?");
    if(debugperms == Number(debugged)){
        speed = Number(prompt("Speed?"));
-       score += Number(prompt("Score?"));
+       score = Number(prompt("Score?"));
+       lives = Number(prompt("Lives?"))
        coords1 = prompt("Display Coords? (false/true)");
        pdisabled1 = prompt("Pdisable? (false/true)");
        odisabled1 = prompt("oDisabled? (false/true)");
