@@ -122,7 +122,7 @@ document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 function collision(xx,yy,ss,XX,YY,SS){
 	return Boolean((xx + ss > XX && xx < XX+ SS) && (yy + ss > YY && yy < YY + SS));
-}
+}//distance collision, made by Omar
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
         rightPress = true;
@@ -557,7 +557,7 @@ if(score >= 20 && pdisabled == false){
    drawCProjectileX(); 
    drawIProjectileY();
    drawCProjectileY();
-  if((y + size > projectilexstart && y < projectilexstart+ pSize) && (x + size > projectileY && x < projectileY+pSize)&&(godmode == false)){
+  if(collision(y,x,size,projectilexstart,projectileY,pSize)){
     if(lives > 0){
     lives--;
     oof.play();
