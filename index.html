@@ -120,6 +120,8 @@ var increaseTime = 2;
 var oof = new sound("oof.mp3");
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+function collision(xx,yy,ss,XX,YY,SS){
+	return Boolean((xx + ss > XX && xx < XX+ SS) && (yy + ss > YY && yy < YY + SS));
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
         rightPress = true;
@@ -690,7 +692,7 @@ if(odisabled == false){
   projectilexstart += projectilespeedx;
   projectileystart += projectilespeedy;  
   
-if ((x + size > appleX && x < appleX+ size) && (y + size > appleY && y < appleY+size)){
+if (collision(x,y,size,appleX,appleY,size)){
 //DISTANCE COLLISION METHOD
     appleState = false;
     score++;
