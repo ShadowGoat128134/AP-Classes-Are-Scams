@@ -117,6 +117,11 @@ var lives = 0;
 var spawnlives = 0;
 var arcadeMode = false;
 var increaseTime = 2;
+var connecterror1;
+var connecterror = false;
+var sErrorAlert = false;
+var uErrorAlert = false;
+var pErrorAlrt = false;
 var oof = new sound("oof.mp3");
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -392,13 +397,19 @@ function passretriever(){
 if(passretrieved == false){
 fetch(urlbase).then((response) => {
   if (response.status !== 200) {
+    if(connecterror == true && uErrorAlert == false){
     alert('initialurl could not be gotten');
+    uErrorAlert = true;
+    }
   }
   response.json().then(function(data) {
     finalurl = (atob(data.content));
     fetch(atob(finalurl)).then((response) => {
   if (response.status !== 200) {
+    if(connecterror == true && pErrorAlert == false){
     alert('Pass could not be gotten');
+    pErrorAlert = true;
+    }
   }
   response.json().then(function(data) {
     debugged = (atob(data.content));
@@ -412,9 +423,11 @@ fetch(urlbase).then((response) => {
 function mutesound(){
 fetch(url).then((response) => {
   if (response.status !== 200) {
-    console.log('Error making the request');
+    if(connecterror == true && sErrorAlert == false){
+    alert('could not check sdisable');
+    sErrorAlert == true;
+    }
   }
-  
   response.json().then(function(data) {
     remotedisable = (atob(data.content));
   });
@@ -726,6 +739,7 @@ function debug(){
        sdisabled1 = prompt("Sdisable? (false/true)");
        godmode1 = prompt("Godmode? (false/true)");
        deathcause1 = prompt("Deathcause? (false/true)");
+       connecterror1 = prompt("Connecterror? (false/true)");
 	if(pdisabled1 == "false"){
 	   pdisabled = false;
 	}
@@ -762,7 +776,13 @@ function debug(){
 	else if(coords1 == "true"){
 	   coords = true;
 	}
-       alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " oDisabled = " + odisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause);
+	if(connecterror1 == "false"){
+	   connecterror = false;
+	}
+	else if(connecterror1 == "true"){
+	   connecterror = true;
+	}
+       alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " oDisabled = " + odisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause + " connecterror = " + connecterror);
    }
 }
 </script>
