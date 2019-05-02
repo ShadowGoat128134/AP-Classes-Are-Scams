@@ -125,9 +125,7 @@ var pErrorAlrt = false;
 var oof = new sound("oof.mp3");
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-function collision(xx,yy,ss,XX,YY,SS){
-	return Boolean((xx + ss > XX && xx < XX+ SS) && (yy + ss > YY && yy < YY + SS));
-}//distance collision, made by Progammer 2
+
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
         rightPress = true;
@@ -434,18 +432,6 @@ fetch(url).then((response) => {
 });
 }
 var rColor ="#05f439";
-function randColor(){
-  var cColor = getRndInteger(1, 4);
-  if (cColor == 1){
-     rColor = "#05f439"; 
-  }
-  else if (cColor == 2){
-     rColor= "#ff0000";
-  }
-  else if(cColor==3) {
-     rColor= "#06f";
-}
-}
 randColor();
 function drawSnakeHead(){
   ctx.beginPath();
@@ -705,7 +691,21 @@ if(odisabled == false){
   y += sY;
   projectilexstart += projectilespeedx;
   projectileystart += projectilespeedy;  
-  
+function collision(xx,yy,ss,XX,YY,SS){
+	return Boolean((xx + ss > XX && xx < XX+ SS) && (yy + ss > YY && yy < YY + SS));
+}//distance collision, made by Progammer 2
+function randColor(){
+  var cColor = getRndInteger(1, 4);
+  if (cColor == 1){
+     rColor = "#05f439"; 
+  }
+  else if (cColor == 2){
+     rColor= "#ff0000";
+  }
+  else if(cColor==3) {
+     rColor= "#06f";
+}
+} 
 if (collision(x,y,size,appleX,appleY,size)){
 //DISTANCE COLLISION METHOD
     appleState = false;
