@@ -712,8 +712,12 @@ if (collision(x,y,size,appleX,appleY,size)){
   }
 requestAnimationFrame(draw);//programmmer 1
 }
+var collisionX;
+var collisionY;
 function collision(xx,yy,ss,XX,YY,SS){
-	return Boolean((xx + ss > XX && xx < XX+ SS) && (yy + ss > YY && yy < YY + SS));
+	collisionX=Boolean(xx + ss > XX && xx < XX+ SS);
+	collisionY=Boolean(yy + ss > YY && yy < YY + SS);
+	return Boolean(collisionX && collisionY);
 }//distance collision, made by Progammer 2
 function randColor(){
   var cColor = getRndInteger(1, 4);
