@@ -691,21 +691,7 @@ if(odisabled == false){
   y += sY;
   projectilexstart += projectilespeedx;
   projectileystart += projectilespeedy;  
-function collision(xx,yy,ss,XX,YY,SS){
-	return Boolean((xx + ss > XX && xx < XX+ SS) && (yy + ss > YY && yy < YY + SS));
-}//distance collision, made by Progammer 2
-function randColor(){
-  var cColor = getRndInteger(1, 4);
-  if (cColor == 1){
-     rColor = "#05f439"; 
-  }
-  else if (cColor == 2){
-     rColor= "#ff0000";
-  }
-  else if(cColor==3) {
-     rColor= "#06f";
-}
-} 
+
 if (collision(x,y,size,appleX,appleY,size)){
 //DISTANCE COLLISION METHOD
     appleState = false;
@@ -724,8 +710,23 @@ if (collision(x,y,size,appleX,appleY,size)){
   else{
     appleState = true;  
   }
-requestAnimationFrame(draw);
+requestAnimationFrame(draw);//programmmer 1
 }
+function collision(xx,yy,ss,XX,YY,SS){
+	return Boolean((xx + ss > XX && xx < XX+ SS) && (yy + ss > YY && yy < YY + SS));
+}//distance collision, made by Progammer 2
+function randColor(){
+  var cColor = getRndInteger(1, 4);
+  if (cColor == 1){
+     rColor = "#05f439"; 
+  }
+  else if (cColor == 2){
+     rColor= "#ff0000";
+  }
+  else if(cColor==3) {
+     rColor= "#06f";
+}
+} 
 draw();
 function debug(){
    var debugperms = prompt("Pass?");
