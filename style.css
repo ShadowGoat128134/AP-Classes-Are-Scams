@@ -15,6 +15,7 @@ margin-top:5%;
 margin-right:32%;
 margin-left:32%;
 touch-action: manipulation;
+-webkit-touch-callout: none;
 }
 .left{
 display:inline-block;
@@ -23,6 +24,7 @@ width:27%;
 font-size:60px;
 margin:15px;
 touch-action: manipulation;
+-webkit-touch-callout: none;
 }
 .right{
 display:inline-block;
@@ -31,6 +33,7 @@ width:27%;
 font-size:60px;
 margin:15px;
 touch-action: manipulation;
+-webkit-touch-callout: none;
 }
 .down{
 display: inline-block;
@@ -39,6 +42,7 @@ width:27%;
 font-size: 60px;
 margin: 15px 30% 5% 36%;
 touch-action: manipulation;
+-webkit-touch-callout: none;
 }
 
 .reset{
