@@ -7,43 +7,43 @@
 #mobile-only {display: block;}
 }
 
-.up{
-display: block;
-width:36%;
-font-size: 60px;
-margin-top:5%;
-margin-right:32%;
-margin-left:32%;
-touch-action: manipulation;
--webkit-touch-callout: none;
-}
-.left{
-display:inline-block;
-float:left;
-width:27%;
-font-size:60px;
-margin:15px;
-touch-action: manipulation;
--webkit-touch-callout: none;
-}
-.right{
-display:inline-block;
-float:right;
-width:27%;
-font-size:60px;
-margin:15px;
-touch-action: manipulation;
--webkit-touch-callout: none;
-}
-.down{
-display: inline-block;
-float;
-width:27%;
-font-size: 60px;
-margin: 15px 30% 5% 36%;
-touch-action: manipulation;
--webkit-touch-callout: none;
-}
+  .up{
+    display: block;
+    width:36%;
+    font-size: 60px;
+    margin-top:5%;
+    margin-right:32%;
+    margin-left:32%;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+   }
+  .left{ 
+    display:inline-block;
+    float:left;
+    width:27%;
+    font-size:60px;
+    margin:15px;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+  }
+  .right{
+    display:inline-block;
+    float:right;
+    width:27%;
+    font-size:60px;
+    margin:15px;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+  }
+  .down{
+    display: inline-block;
+    float;
+    width:27%;
+    font-size: 60px;
+    margin: 15px 30% 5% 36%;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+  }
 
 .reset{
   border-radius: 15%;
