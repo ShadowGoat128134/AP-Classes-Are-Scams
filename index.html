@@ -26,21 +26,10 @@
 <button class = "reset" style="margin-right:30px; float: right;" type="button" onclick= "arcade()">Arcade Mode</button>
 <button class = "reset" style="margin-right:30px; float: right;" type="button" onclick= "classic()">Classic Mode</button>
 <h1 style="margin-right:30px; float: right;">Gamemode: </h1>
-  <button class="up" id="mobile-only" type="button" onclick= "upPress = true;rightPress = false;
-leftPress = false;
-downPress = false;
-">Up</button>
-	<div class="container">
-  <div class="inner"><button class="left" id="mobile-only" type="button" onclick= "leftPress = true;rightPress = false;
-	  upPress = false;downPress = false;"> Left</button></div>
-	<div class="inner">
-  <button class="right" id="mobile-only" type="button" onclick= "rightPress = true;
-leftPress = false;upPress = false;
-downPress = false;">Right</button></div>
-	</div>
-   <button class="down" id="mobile-only" type="button" onclick= "downPress = true; rightPress = false;
-leftPress = false;
-upPress = false;">Down</button>	
+  <button class="up" id="mobile-only" type="button" onclick= "upPress = true;rightPress = false;leftPress = false;downPress = false;">Up</button>
+  <button class="left" id="mobile-only" type="button" onclick= "leftPress = true;rightPress = false;upPress = false;downPress = false;"> Left</button>
+  <button class="right" id="mobile-only" type="button" onclick= "rightPress = true;leftPress = false;upPress = false;downPress = false;">Right</button>
+  <button class="down" id="mobile-only" type="button" onclick= "downPress = true; rightPress = false;leftPress = false;upPress = false;">Down</button>	
 <script>
 var canvas = document.getElementById("Snakeplane");
 var ctx = canvas.getContext("2d");
