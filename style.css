@@ -51,9 +51,11 @@
 
 .reset{
   border-radius: 15%;
+  button:focus {outline:0;}
 }
 .debug{
   border-radius: 15%;
+  button:focus {outline:0;}
 }
 .reset:hover {background-color: #C0C0C0}
 .reset:active {
