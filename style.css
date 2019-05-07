@@ -54,13 +54,13 @@
 .reset:hover {background-color: #C0C0C0}
 .reset:active {
   background-color: #C0C0C0;
-  box-shadow: 0 2px #666;
+  box-shadow: 0 1px #666;
   transform: translateY(1px);
 }
 .debug:hover {background-color: #C0C0C0}
 .debug:active {
   background-color: #C0C0C0;
-  box-shadow: 0 2px #666;
+  box-shadow: 0 1px #666;
   transform: translateY(1px);
 }
 h1 {
