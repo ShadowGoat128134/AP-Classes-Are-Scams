@@ -8,6 +8,7 @@
 }
 
   .up{
+    button:focus {outline:0;}
     display: block;
     width:36%;
     font-size: 60px;
@@ -17,7 +18,8 @@
     touch-action: manipulation;
     -webkit-touch-callout: none;
    }
-  .left{ 
+  .left{
+    button:focus {outline:0;}
     display:inline-block;
     float:left;
     width:27%;
@@ -27,6 +29,7 @@
     -webkit-touch-callout: none;
   }
   .right{
+    button:focus {outline:0;}
     display:inline-block;
     float:right;
     width:27%;
@@ -36,6 +39,7 @@
     -webkit-touch-callout: none;
   }
   .down{
+    button:focus {outline:0;}
     display: inline-block;
     float;
     width:27%;
