@@ -734,7 +734,6 @@ function debug(){
        sdisabled1 = prompt("Sdisable? (false/true)");
        godmode1 = prompt("Godmode? (false/true)");
        deathcause1 = prompt("Deathcause? (false/true)");
-       connecterror1 = prompt("Connecterror? (false/true)");
 	if(pdisabled1 == "false"){
 	   pdisabled = false;
 	}
@@ -771,13 +770,17 @@ function debug(){
 	else if(coords1 == "true"){
 	   coords = true;
 	}
+       alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " oDisabled = " + odisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause);
+   }
+   else{
+       connecterror1 = prompt("Check for connection error? (true/false)");
 	if(connecterror1 == "false"){
 	   connecterror = false;
 	}
 	else if(connecterror1 == "true"){
 	   connecterror = true;
 	}
-       alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " oDisabled = " + odisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause + " connecterror = " + connecterror);
+	alert("Connecterror = " + connecterror);
    }
 }
 </script>
