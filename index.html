@@ -403,7 +403,7 @@ function refreshLoop() {
     refreshLoop();
   });
 }
-refreshloop();
+refreshLoop();
 function passretriever(){
 if(passretrieved == false){
 fetch(urlbase).then((response) => {
@@ -436,7 +436,7 @@ fetch(url).then((response) => {
   if (response.status !== 200) {
     if(connecterror == true && sErrorAlert == false){
     alert('could not check sdisable');
-    sErrorAlert == true;
+    sErrorAlert = true;
     }
   }
   response.json().then(function(data) {
@@ -750,7 +750,7 @@ function debug(){
    if(debugperms == Number(debugged)){
        speed = Number(prompt("Speed?"));
        score = Number(prompt("Score?"));
-       spawnlives = Number(prompt("Spawnlives?"))
+       spawnlives = Number(prompt("Spawnlives?"));
        coords1 = prompt("Display Coords? (false/true)");
        pdisabled1 = prompt("Pdisable? (false/true)");
        odisabled1 = prompt("oDisabled? (false/true)");
