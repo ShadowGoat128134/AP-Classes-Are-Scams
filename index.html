@@ -32,6 +32,8 @@
   <button class="right" id="mobile-only" type="button" onclick= "rightPress = true;leftPress = false;upPress = false;downPress = false;">Right</button>
   <button class="down" id="mobile-only" type="button" onclick= "downPress = true; rightPress = false;leftPress = false;upPress = false;">Down</button>	
 <script>
+const times = [];
+let fps;
 var canvas = document.getElementById("Snakeplane");
 var ctx = canvas.getContext("2d");
 var x = canvas.width/2;
@@ -111,7 +113,9 @@ var connecterror1;
 var connecterror = false;
 var sErrorAlert = false;
 var uErrorAlert = false;
-var pErrorAlrt = false;
+var pErrorAlert = false;
+var displayfps1;
+var displayfps = false;
 var oof = new sound("oof.mp3");
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -345,6 +349,13 @@ function drawLives() {
   ctx.fillText("Lives: " + lives, 725, 460);
   }
 }
+function drawFPS() {
+  if(displayfps == true){
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("FPS: " + fps, 450, 460);
+  }
+}
 function drawIProjectileX(){
 if (score >= 20 && projectileXstate == false){
  projectileXstate = true;
@@ -381,6 +392,18 @@ function drawCProjectileY(){
  ctx.strokeRect(projectileystart, projectileX, pSize, pSize);
  }
 }
+function refreshLoop() {
+  window.requestAnimationFrame(() => {
+    const now = performance.now();
+    while (times.length > 0 && times[0] <= now - 1000) {
+      times.shift();
+    }
+    times.push(now);
+    fps = times.length;
+    refreshLoop();
+  });
+}
+refreshloop();
 function passretriever(){
 if(passretrieved == false){
 fetch(urlbase).then((response) => {
@@ -734,6 +757,7 @@ function debug(){
        sdisabled1 = prompt("Sdisable? (false/true)");
        godmode1 = prompt("Godmode? (false/true)");
        deathcause1 = prompt("Deathcause? (false/true)");
+       displayfps1 = prompt("FPS Display? (true/false)");
 	if(pdisabled1 == "false"){
 	   pdisabled = false;
 	}
@@ -770,7 +794,13 @@ function debug(){
 	else if(coords1 == "true"){
 	   coords = true;
 	}
-       alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " oDisabled = " + odisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause);
+	if(displayfps1 == "false"){
+	   displayfps = false;
+	}
+	else if(displayfps1 == "true"){
+	   displayfps = true;
+	}
+       alert("speed = " + speed + " score = " + score + " pdisabled = " + pdisabled + " oDisabled = " + odisabled + " sdisabled = " + sdisabled + " godmode = " + godmode + " deathcause = " + deathcause + "FPSdisplay = " + displayfps);
    }
    else{
        connecterror1 = prompt("Check for connection error? (true/false)");
